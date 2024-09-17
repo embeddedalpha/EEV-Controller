@@ -1,0 +1,10 @@
+../Inc/core_cm4.h:1684:22:__NVIC_EnableIRQ	16	static,ignoring_inline_asm
+../Inc/core_cm4.h:1814:22:__NVIC_SetPriority	16	static
+../Drivers/RTC/RTC.c:23:16:BCD_to_Decimal	16	static
+../Drivers/RTC/RTC.c:28:16:Decimal_to_BCD	16	static
+../Drivers/RTC/RTC.c:32:13:Enter_Initalization_Mode	4	static
+../Drivers/RTC/RTC.c:39:13:Exit_Initalization_Mode	4	static
+../Drivers/RTC/RTC.c:46:6:RTC_Init	24	static
+../Drivers/RTC/RTC.c:121:6:RTC_Set_Alarm	16	static
+../Drivers/RTC/RTC.c:140:6:RTC_Get_Time	16	static
+../Drivers/RTC/RTC.c:151:6:RTC_Get_Date	16	static

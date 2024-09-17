@@ -1,0 +1,10 @@
+../Inc/main.h:140:26:Delay_ms	24	static
+../Inc/main.h:151:26:Delay_milli	16	static
+../Drivers/ADC/ADC.c:49:13:ADC_Timer_External_Trigger_Init	16	static
+../Drivers/ADC/ADC.c:201:15:ADC_Sampling_Config	24	static
+../Drivers/ADC/ADC.c:342:15:ADC_Pin_Init	40	static
+../Drivers/ADC/ADC.c:530:15:ADC_Sequence_Config	16	static
+../Drivers/ADC/ADC.c:654:8:ADC_Init	24	static
+../Drivers/ADC/ADC.c:766:8:ADC_Enable	16	static
+../Drivers/ADC/ADC.c:790:8:ADC_Start	16	static
+../Drivers/ADC/ADC.c:823:8:ADC_Start_Capture	16	static

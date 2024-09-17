@@ -1,0 +1,3 @@
+../Drivers/Console/Console.c:15:7:Console_Init	16	static
+../Drivers/Console/Console.c:28:7:printConsole	120	static
+../Drivers/Console/Console.c:51:6:readConsole	132	static

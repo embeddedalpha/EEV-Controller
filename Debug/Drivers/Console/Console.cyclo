@@ -1,0 +1,3 @@
+../Drivers/Console/Console.c:15:7:Console_Init	1
+../Drivers/Console/Console.c:28:7:printConsole	1
+../Drivers/Console/Console.c:51:6:readConsole	1
