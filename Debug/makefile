@@ -11,6 +11,8 @@ RM := rm -rf
 -include sources.mk
 -include Startup/subdir.mk
 -include Src/subdir.mk
+-include Singal_Processing/PID/subdir.mk
+-include Singal_Processing/Kalman_Filter/subdir.mk
 -include Drivers/USART/subdir.mk
 -include Drivers/RTC/subdir.mk
 -include Drivers/GPIO/subdir.mk

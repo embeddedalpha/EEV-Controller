@@ -21,5 +21,5 @@
 ../Drivers/DMA/DMA.c:1179:6:DMA_Reset	16	static
 ../Drivers/DMA/DMA.c:1198:8:DMA_Init	16	static
 ../Drivers/DMA/DMA.c:1329:6:DMA_Set_Target	16	static
-../Drivers/DMA/DMA.c:1365:6:DMA_Set_Trigger	32	static
-../Drivers/DMA/DMA.c:1422:6:DMA_Memory_To_Memory_Transfer	24	static
+../Drivers/DMA/DMA.c:1367:6:DMA_Set_Trigger	32	static
+../Drivers/DMA/DMA.c:1424:6:DMA_Memory_To_Memory_Transfer	24	static

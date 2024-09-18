@@ -28,6 +28,8 @@ Drivers/DMA \
 Drivers/GPIO \
 Drivers/RTC \
 Drivers/USART \
+Singal_Processing/Kalman_Filter \
+Singal_Processing/PID \
 Src \
 Startup \
 

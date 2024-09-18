@@ -4,6 +4,8 @@
 "./Drivers/GPIO/GPIO.o"
 "./Drivers/RTC/RTC.o"
 "./Drivers/USART/USART.o"
+"./Singal_Processing/Kalman_Filter/Kalman_Filter.o"
+"./Singal_Processing/PID/PID.o"
 "./Src/main.o"
 "./Src/syscalls.o"
 "./Src/sysmem.o"
