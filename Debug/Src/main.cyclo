@@ -12,5 +12,5 @@
 ../Src/main.c:118:6:Get_Pressure	1
 ../Src/main.c:124:7:Get_Saturation_Temp_From_Pressure	6
 ../Src/main.c:156:6:Init_Stepper_Motor	1
-../Src/main.c:178:6:Set_Stepper_Motor_Position	4
-../Src/main.c:234:6:Sensor_Init	1
+../Src/main.c:173:6:Set_Stepper_Motor_Position	4
+../Src/main.c:219:6:Sensor_Init	1
