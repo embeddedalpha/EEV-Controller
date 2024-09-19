@@ -46,11 +46,6 @@ void TIM6_DAC_IRQHandler(void)
 	float saturation_temp = Get_Saturation_Temp_From_Pressure(pressure, R454B_Saturation_Table, R545B_Table_Size);
 
 	float superheat = temp_kelvin - saturation_temp;
-
-
-
-
-
 }
 
 
@@ -94,8 +89,6 @@ int main(void)
 		Delay_s(1);
 		Set_Stepper_Motor_Position(1000);
 		Delay_s(1);
-
-
 
 	}
 }
@@ -158,25 +151,6 @@ void Init_Stepper_Motor(void)
 	RCC->APB1ENR |= RCC_APB1ENR_TIM4EN; // Enable TIM5 clock
 	GPIO_Pin_Init(GPIOD, 12, GPIO_Configuration.Mode.Alternate_Function, GPIO_Configuration.Output_Type.Push_Pull, GPIO_Configuration.Speed.Very_High_Speed, GPIO_Configuration.Pull.No_Pull_Up_Down, GPIO_Configuration.Alternate_Functions.TIM_4);
 
-    TIM4 -> CCMR1 |= TIM_CCMR1_OC1M_2 | TIM_CCMR1_OC1M_1;
-    TIM4 -> CCMR1 |= TIM_CCMR1_OC1PE;
-    TIM4 -> CCER |= TIM_CCER_CC1E;
-//    TIM4 -> EGR |= TIM_EGR_UG;
-    TIM4 -> DIER |= TIM_DIER_CC1DE;
-    TIM4->PSC = 84000000/(100*2000);                   // Prescaler
-    TIM4->ARR = 100;                                   // Auto-reload value (period)
-//    TIM4 -> CR1 |= TIM_CR1_CEN;
-}
-
-
-
-void Set_Stepper_Motor_Position(float control_signal)
-{
-	for(int i = 0; i < array_length; i++)
-	{
-		data_array[i] = 0;
-	}
-
 	Stepper_Motor.Request = DMA_Configuration.Request.TIM4_CH1;
 	Stepper_Motor.circular_mode = DMA_Configuration.Circular_Mode.Disable;
 	Stepper_Motor.flow_control = DMA_Configuration.Flow_Control.DMA_Control;
@@ -192,6 +166,23 @@ void Set_Stepper_Motor_Position(float control_signal)
 
 	DMA_Init(&Stepper_Motor);
 
+    TIM4 -> CCMR1 |= TIM_CCMR1_OC1M_2 | TIM_CCMR1_OC1M_1;
+    TIM4 -> CCMR1 |= TIM_CCMR1_OC1PE;
+    TIM4 -> CCER |= TIM_CCER_CC1E;
+    TIM4 -> DIER |= TIM_DIER_CC1DE;
+    TIM4->PSC = 84000000/(100*2000);                   // Prescaler
+    TIM4->ARR = 100;                                   // Auto-reload value (period)
+}
+
+
+
+void Set_Stepper_Motor_Position(float control_signal)
+{
+	for(int i = 0; i < array_length; i++)
+	{
+		data_array[i] = 0;
+	}
+
 	for(int i =0 ; i < (uint32_t)control_signal; i++)
 	{
 		data_array[i]= 50;
@@ -206,10 +197,6 @@ void Set_Stepper_Motor_Position(float control_signal)
 	TIM4 -> CR1 |= TIM_CR1_CEN;
 
 	while(TIM4_CH1_DMA_Flag.Transfer_Complete_Flag != true){}
-
-
-//	TIM4 -> CR1 &= ~TIM_CR1_CEN;
-
 	DMA_Reset_Flags(TIM4_CH1_DMA_Flag);
 
 }
