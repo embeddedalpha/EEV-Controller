@@ -1,3 +1,6 @@
+"./Communication/MODBus/MODBus.o"
+"./Communication/RS232/RS232.o"
+"./Communication/RS485/RS485.o"
 "./Drivers/ADC/ADC.o"
 "./Drivers/Console/Console.o"
 "./Drivers/DMA/DMA.o"

@@ -8,9 +8,9 @@
 ../Src/main.c:39:6:TIM6_DAC_IRQHandler	16	static
 ../Src/main.c:52:6:General_Timer_Update_Init	8	static
 ../Src/main.c:65:5:main	16	static
-../Src/main.c:97:6:Get_Temperature	40	static
-../Src/main.c:111:6:Get_Pressure	24	static
-../Src/main.c:117:7:Get_Saturation_Temp_From_Pressure	48	static
-../Src/main.c:149:6:Init_Stepper_Motor	32	static
-../Src/main.c:179:6:Set_Stepper_Motor_Position	24	static
-../Src/main.c:206:6:Sensor_Init	8	static
+../Src/main.c:93:6:Get_Temperature	40	static
+../Src/main.c:107:6:Get_Pressure	24	static
+../Src/main.c:113:7:Get_Saturation_Temp_From_Pressure	48	static
+../Src/main.c:145:6:Init_Stepper_Motor	32	static
+../Src/main.c:175:6:Set_Stepper_Motor_Position	24	static
+../Src/main.c:203:6:Sensor_Init	8	static

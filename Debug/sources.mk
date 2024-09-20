@@ -22,6 +22,9 @@ C_DEPS :=
 
 # Every subdirectory with source files must be described here
 SUBDIRS := \
+Communication/MODBus \
+Communication/RS232 \
+Communication/RS485 \
 Drivers/ADC \
 Drivers/Console \
 Drivers/DMA \

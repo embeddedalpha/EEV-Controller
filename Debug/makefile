@@ -19,6 +19,9 @@ RM := rm -rf
 -include Drivers/DMA/subdir.mk
 -include Drivers/Console/subdir.mk
 -include Drivers/ADC/subdir.mk
+-include Communication/RS485/subdir.mk
+-include Communication/RS232/subdir.mk
+-include Communication/MODBus/subdir.mk
 -include objects.mk
 
 ifneq ($(MAKECMDGOALS),clean)

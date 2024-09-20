@@ -27,7 +27,7 @@ void Get_Temperature(uint16_t adc_value);
 void Get_Pressure(uint16_t adc_value);
 float Get_Saturation_Temp_From_Pressure(int pressure, PressureTempEntry *saturation_table, int TABLE_SIZE);
 void Init_Stepper_Motor(void);
-void Set_Stepper_Motor_Position(float control_signal);
+void Set_Stepper_Motor_Position(float control_signal, uint16_t speed);
 
 
 uint16_t sensor_buffer[2];
@@ -78,16 +78,12 @@ int main(void)
 
 
 
-
-
 	for(;;)
 	{
 
-		Set_Stepper_Motor_Position(10);
+		Set_Stepper_Motor_Position(10, 1000);
 		Delay_s(1);
-		Set_Stepper_Motor_Position(100);
-		Delay_s(1);
-		Set_Stepper_Motor_Position(1000);
+		Set_Stepper_Motor_Position(2000, 200);
 		Delay_s(1);
 
 	}
@@ -170,14 +166,15 @@ void Init_Stepper_Motor(void)
     TIM4 -> CCMR1 |= TIM_CCMR1_OC1PE;
     TIM4 -> CCER |= TIM_CCER_CC1E;
     TIM4 -> DIER |= TIM_DIER_CC1DE;
-    TIM4->PSC = 84000000/(100*2000);                   // Prescaler
+//    TIM4->PSC = 84000000/(100*2000);                   // Prescaler
     TIM4->ARR = 100;                                   // Auto-reload value (period)
 }
 
 
 
-void Set_Stepper_Motor_Position(float control_signal)
+void Set_Stepper_Motor_Position(float control_signal, uint16_t speed)
 {
+    TIM4->PSC = 84000000/(100*speed)-1;                   // Prescaler
 	for(int i = 0; i < array_length; i++)
 	{
 		data_array[i] = 0;
@@ -197,7 +194,7 @@ void Set_Stepper_Motor_Position(float control_signal)
 	TIM4 -> CR1 |= TIM_CR1_CEN;
 
 	while(TIM4_CH1_DMA_Flag.Transfer_Complete_Flag != true){}
-	DMA_Reset_Flags(TIM4_CH1_DMA_Flag);
+	DMA_Reset_Flags(&TIM4_CH1_DMA_Flag);
 
 }
 
