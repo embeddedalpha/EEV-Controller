@@ -263,7 +263,7 @@ void DMA_Reset(DMA_Config *config);
  *
  * @param flag The DMA_Flags_Typedef structure whose flags are to be reset.
  */
-void DMA_Reset_Flags(DMA_Flags_Typedef flag);
+void DMA_Reset_Flags(DMA_Flags_Typedef *flag);
 
 /**
  * @brief Initializes the DMA with the specified configuration.
