@@ -1118,13 +1118,13 @@ void DMA2_Stream7_IRQHandler(void)
  *
  * @param flag The `DMA_Flags_Typedef` structure whose flags are to be reset.
  */
-void DMA_Reset_Flags(DMA_Flags_Typedef flag)
+void DMA_Reset_Flags(DMA_Flags_Typedef *flag)
 {
-	flag.Direct_Mode_Error_Flag = false;
-	flag.Fifo_Error_Flag = false;
-	flag.Half_Transfer_Complete_Flag = false;
-	flag.Transfer_Complete_Flag = false;
-	flag.Transfer_Error_Flag = false;
+	flag->Direct_Mode_Error_Flag = false;
+	flag->Fifo_Error_Flag = false;
+	flag->Half_Transfer_Complete_Flag = false;
+	flag->Transfer_Complete_Flag = false;
+	flag->Transfer_Error_Flag = false;
 }
 
 /**
