@@ -11,17 +11,19 @@
 #include "main.h"
 #include "MODBus.h"
 
+#define turnaround_delay_ms 100
+#define response_time_out_ms 1000
 
-typedef struct Modbus_Request{
+typedef struct ModBus_Request{
 
 	uint8_t slave_address;
 	uint8_t function_code;
 	uint8_t starting_address;
 	uint8_t quantity;
 	uint16_t crc;
-}Modbus_Request;
+}ModBus_Request;
 
-typedef struct Modbus_Response{
+typedef struct ModBus_Response{
 
 	uint8_t slave_address;
 	uint8_t function_code;
@@ -30,11 +32,17 @@ typedef struct Modbus_Response{
 	uint16_t crc;
 }Modbus_Response;
 
-typedef struct Modbus_Config{
+typedef struct ModBus_Config{
+
+
 
 
 
 }Modbus_Config;
+
+unsigned short ModBus_CRC16(uint16_t *packet, uint16_t len);
+
+
 
 
 #endif /* MODBUS_MODBUS_H_ */
