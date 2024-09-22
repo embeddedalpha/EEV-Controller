@@ -10,6 +10,8 @@
 #include "USART.h"
 
 
+
+
 DMA_Config xUSART_RX[6];
 DMA_Config xUSART_TX[6];
 
@@ -325,10 +327,80 @@ int8_t USART_Init(USART_Config *config)
 	int div_frac_1 = (int)(ceil(div_frac*16.0));
 	int mantissa_1 = (int)(ceil(mantissa));
 
-//	config->Port-> CR1 |= USART_CR1_UE;
 	config->Port->BRR = (mantissa_1<<4)|(div_frac_1);
-	config->Port->CR1 |= config->parity; //Parity
-	config->Port->CR1 |= config->interrupt; //interrupt
+	config->Port->CR1 |= config->parity;
+
+	if(config -> interrupt == USART_Configuration.Interrupt_Type.Disable)
+	{
+		config -> Port -> CR1 &= ~(USART_CR1_PEIE | USART_CR1_TXEIE | USART_CR1_TCIE | USART_CR1_RXNEIE | USART_CR1_IDLEIE);
+		config -> Port -> CR2 &= ~(USART_CR2_LBDIE);
+		config -> Port -> CR3 &= ~(USART_CR3_CTSIE | USART_CR3_EIE);
+	}
+	else
+	{
+		if((config->interrupt & USART_Configuration.Interrupt_Type.Parity_Enable) == USART_Configuration.Interrupt_Type.Parity_Enable)
+		{
+			config -> Port -> CR1 |= USART_CR1_PEIE;
+		}
+		if((config->interrupt & USART_Configuration.Interrupt_Type.Transmit_Empty_Enable) == USART_Configuration.Interrupt_Type.Transmit_Empty_Enable)
+		{
+			config -> Port -> CR1 |= USART_CR1_TXEIE;
+		}
+		if((config->interrupt & USART_Configuration.Interrupt_Type.Transmission_Complete_Enable) == USART_Configuration.Interrupt_Type.Transmission_Complete_Enable)
+		{
+			config -> Port -> CR1 |= USART_CR1_TCIE;
+		}
+		if((config->interrupt & USART_Configuration.Interrupt_Type.Receiver_Empty_Enable) == USART_Configuration.Interrupt_Type.Receiver_Empty_Enable)
+		{
+			config -> Port -> CR1 |= USART_CR1_RXNEIE;
+		}
+		if((config->interrupt & USART_Configuration.Interrupt_Type.IDLE_Enable) == USART_Configuration.Interrupt_Type.IDLE_Enable)
+		{
+			config -> Port -> CR1 |= USART_CR1_IDLEIE;
+		}
+
+		if((config->interrupt & USART_Configuration.Interrupt_Type.LIN_Break_Detection_Enable) == USART_Configuration.Interrupt_Type.LIN_Break_Detection_Enable)
+		{
+			config -> Port -> CR2 |= USART_CR2_LBDIE;
+		}
+
+		if((config->interrupt & USART_Configuration.Interrupt_Type.CTS_Enable) == USART_Configuration.Interrupt_Type.CTS_Enable)
+		{
+			config -> Port -> CR3 |= USART_CR3_CTSIE;
+		}
+		if((config->interrupt & USART_Configuration.Interrupt_Type.Error_Enable) == USART_Configuration.Interrupt_Type.Error_Enable)
+		{
+			config -> Port -> CR3 |= USART_CR3_EIE;
+		}
+
+		if(config -> Port == USART1)
+		{
+			NVIC_EnableIRQ(USART1_IRQn);
+		}
+		else if(config -> Port == USART2)
+		{
+			NVIC_EnableIRQ(USART2_IRQn);
+		}
+		else if(config -> Port == USART3)
+		{
+			NVIC_EnableIRQ(USART3_IRQn);
+		}
+		else if(config -> Port == UART4)
+		{
+			NVIC_EnableIRQ(UART4_IRQn);
+		}
+		else if(config -> Port == UART5)
+		{
+			NVIC_EnableIRQ(UART5_IRQn);
+		}
+		else if(config -> Port == USART6)
+		{
+			NVIC_EnableIRQ(USART6_IRQn);
+		}
+
+	}
+
+
 	config->Port->CR2 |= config->stop_bits;
 
 	if(config->dma_enable == USART_Configuration.DMA_Enable.RX_Enable)
@@ -439,7 +511,6 @@ int8_t USART_TX_Buffer(USART_Config *config, uint8_t *tx_buffer, uint16_t length
 		config -> Port -> SR &= ~USART_SR_TC;
 		xUSART_TX[usart_dma_instance_number].memory_address = (uint32_t)tx_buffer;
 		xUSART_TX[usart_dma_instance_number].peripheral_address = (uint32_t)&config->Port->DR;
-//		xUSART_TX[usart_dma_instance_number].peripheral_address = (uint32_t)&USART1->DR;
 		xUSART_TX[usart_dma_instance_number].buffer_length = length;
 		DMA_Set_Target(&xUSART_TX[usart_dma_instance_number]);
 		DMA_Set_Trigger(&xUSART_TX[usart_dma_instance_number]);
@@ -451,6 +522,7 @@ int8_t USART_TX_Buffer(USART_Config *config, uint8_t *tx_buffer, uint16_t length
 				if(USART1_TX_DMA_Flag.Transfer_Error_Flag == true) {return -1;}
 			}
 			USART1_TX_DMA_Flag.Transfer_Complete_Flag = false;
+			DMA_Reset_Flags(&USART1_TX_DMA_Flag);
 		}
 		else if(config->Port == USART2)
 		{
@@ -459,6 +531,7 @@ int8_t USART_TX_Buffer(USART_Config *config, uint8_t *tx_buffer, uint16_t length
 				if(USART2_TX_DMA_Flag.Transfer_Error_Flag == true)  {return -1;}
 			}
 			USART2_TX_DMA_Flag.Transfer_Complete_Flag = false;
+			DMA_Reset_Flags(&USART2_TX_DMA_Flag);
 		}
 		else if(config->Port == USART3)
 		{
@@ -467,6 +540,7 @@ int8_t USART_TX_Buffer(USART_Config *config, uint8_t *tx_buffer, uint16_t length
 				if(USART3_TX_DMA_Flag.Transfer_Error_Flag == true)  {return -1;}
 			}
 			USART3_TX_DMA_Flag.Transfer_Complete_Flag = false;
+			DMA_Reset_Flags(&USART3_TX_DMA_Flag);
 		}
 		else if(config->Port == UART4)
 		{
@@ -475,6 +549,7 @@ int8_t USART_TX_Buffer(USART_Config *config, uint8_t *tx_buffer, uint16_t length
 				if(USART4_TX_DMA_Flag.Transfer_Error_Flag == true)  {return -1;}
 			}
 			USART4_TX_DMA_Flag.Transfer_Complete_Flag = false;
+			DMA_Reset_Flags(&USART4_TX_DMA_Flag);
 		}
 		else if(config->Port == UART5)
 		{
@@ -483,6 +558,7 @@ int8_t USART_TX_Buffer(USART_Config *config, uint8_t *tx_buffer, uint16_t length
 				if(USART5_TX_DMA_Flag.Transfer_Error_Flag == true) {return -1;}
 			}
 			USART5_TX_DMA_Flag.Transfer_Complete_Flag = false;
+			DMA_Reset_Flags(&USART5_TX_DMA_Flag);
 		}
 		else if(config->Port == USART6)
 		{
@@ -491,7 +567,10 @@ int8_t USART_TX_Buffer(USART_Config *config, uint8_t *tx_buffer, uint16_t length
 				if(USART6_TX_DMA_Flag.Transfer_Error_Flag == true) {return -1;}
 			}
 			USART6_TX_DMA_Flag.Transfer_Complete_Flag = false;
+			DMA_Reset_Flags(&USART6_TX_DMA_Flag);
 		}
+
+
 	}
 	else
 	{ //Will Take more time
@@ -506,10 +585,18 @@ int8_t USART_TX_Buffer(USART_Config *config, uint8_t *tx_buffer, uint16_t length
 
 }
 
-int8_t USART_RX_Buffer(USART_Config *config, uint8_t *rx_buffer, uint16_t length)
+int8_t USART_RX_Buffer(USART_Config *config, uint8_t *rx_buffer, uint16_t length, bool circular_buffer_enable)
 {
 	if(config->dma_enable |= USART_Configuration.DMA_Enable.RX_Enable)
 	{
+		if(circular_buffer_enable == 1)
+		{
+			xUSART_RX[usart_dma_instance_number].circular_mode = DMA_Configuration.Circular_Mode.Disable;
+		}
+		else
+		{
+			xUSART_RX[usart_dma_instance_number].circular_mode = DMA_Configuration.Circular_Mode.Enable;
+		}
 
 		xUSART_RX[usart_dma_instance_number].memory_address = (uint32_t)&rx_buffer;
 		xUSART_RX[usart_dma_instance_number].peripheral_address = config->Port->DR;
