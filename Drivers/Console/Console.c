@@ -52,7 +52,7 @@ char readConsole(int buffer_length, char * msg, ...)
 {
 	char buff[100];
 	va_list args;
-	USART_RX_Buffer(&serial, &buff, buffer_length);
+	USART_RX_Buffer(&serial, &buff, buffer_length,false);
 	va_start(args, msg);
     // Use sscanf to parse the input from the buffer
     int result = vsscanf(buff, msg, args);
