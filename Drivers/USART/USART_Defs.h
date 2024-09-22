@@ -36,6 +36,7 @@ typedef struct{
 	int IDLE_Enable;
 	int CTS_Enable;
 	int Error_Enable;
+	int LIN_Break_Detection_Enable;
 }_USART_Interrupt_Type;
 
 typedef struct{
@@ -94,6 +95,7 @@ static const struct USART_Configuration{
 				.IDLE_Enable = 1 << 4,
 				.CTS_Enable = 1 << 10,
 				.Error_Enable = 1 << 0,
+				.LIN_Break_Detection_Enable = 1 << 9,
 		},
 
 		.Mode = {
