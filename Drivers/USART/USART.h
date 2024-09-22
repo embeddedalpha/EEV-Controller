@@ -42,7 +42,7 @@ int8_t USART_Init(USART_Config *config);
 void USART_TX_Byte(USART_Config *config, uint16_t data);
 uint16_t USART_RX_Byte(USART_Config *config);
 int8_t USART_TX_Buffer(USART_Config *config, uint8_t *tx_buffer, uint16_t length);
-int8_t USART_RX_Buffer(USART_Config *config, uint8_t *rx_buffer, uint16_t length);
+int8_t USART_RX_Buffer(USART_Config *config, uint8_t *rx_buffer, uint16_t length, bool circular_buffer_enable);
 
 
 
