@@ -1,16 +1,5 @@
-../Inc/core_cm4.h:1684:22:__NVIC_EnableIRQ	2
 ../Inc/core_cm4.h:1814:22:__NVIC_SetPriority	2
 ../Inc/core_cm4.h:2022:26:SysTick_Config	2
 ../Inc/main.h:51:22:MCU_Clock_Setup	4
 ../Inc/main.h:115:26:Delay_Config	1
-../Inc/main.h:140:26:Delay_ms	2
-../Inc/main.h:161:26:Delay_s	2
-../Src/main.c:39:6:TIM6_DAC_IRQHandler	1
-../Src/main.c:52:6:General_Timer_Update_Init	1
-../Src/main.c:65:5:main	2
-../Src/main.c:93:6:Get_Temperature	1
-../Src/main.c:107:6:Get_Pressure	1
-../Src/main.c:113:7:Get_Saturation_Temp_From_Pressure	6
-../Src/main.c:145:6:Init_Stepper_Motor	1
-../Src/main.c:175:6:Set_Stepper_Motor_Position	4
-../Src/main.c:203:6:Sensor_Init	1
+../Src/main.c:12:5:main	1

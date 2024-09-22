@@ -14,13 +14,12 @@ RM := rm -rf
 -include Singal_Processing/PID/subdir.mk
 -include Singal_Processing/Kalman_Filter/subdir.mk
 -include Drivers/USART/subdir.mk
+-include Drivers/Stepper_Motor/subdir.mk
 -include Drivers/RTC/subdir.mk
 -include Drivers/GPIO/subdir.mk
 -include Drivers/DMA/subdir.mk
 -include Drivers/Console/subdir.mk
 -include Drivers/ADC/subdir.mk
--include Communication/RS485/subdir.mk
--include Communication/RS232/subdir.mk
 -include Communication/MODBus/subdir.mk
 -include objects.mk
 

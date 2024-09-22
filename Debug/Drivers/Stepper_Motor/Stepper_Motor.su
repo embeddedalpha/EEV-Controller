@@ -1,0 +1,2 @@
+../Drivers/Stepper_Motor/Stepper_Motor.c:18:6:Stepper_Motor_Init	40	static
+../Drivers/Stepper_Motor/Stepper_Motor.c:54:6:Set_Stepper_Motor_Position	24	static
