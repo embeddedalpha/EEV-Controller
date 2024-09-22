@@ -1330,6 +1330,15 @@ void DMA_Set_Target(DMA_Config *config)
 {
 	config -> Request.Stream -> CR &= ~DMA_SxCR_EN;
 
+	if(config -> circular_mode == DMA_Configuration.Circular_Mode.Disable)
+	{
+		config -> Request.Stream -> CR &= ~DMA_SxCR_CIRC;
+	}
+	else if(config -> circular_mode == DMA_Configuration.Circular_Mode.Enable)
+	{
+		config -> Request.Stream -> CR |= DMA_SxCR_CIRC;
+	}
+
     // Clear previous data size and memory increment settings
     config -> Request.Stream -> CR &= ~(DMA_SxCR_MSIZE | DMA_SxCR_PSIZE | DMA_SxCR_MINC);
 
