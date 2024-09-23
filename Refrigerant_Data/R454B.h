@@ -8,7 +8,7 @@
 #ifndef R454B_R454B_H_
 #define R454B_R454B_H_
 
-#define R545B_Table_Size 68
+#define R545B_Table_Size 67
 
 // Structure to store pressure and temperature data
 typedef struct {

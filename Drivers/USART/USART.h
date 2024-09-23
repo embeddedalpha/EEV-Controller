@@ -31,6 +31,8 @@ typedef struct USART_Config
 	uint8_t stop_bits;
 	uint8_t dma_enable;
 	uint8_t parity;
+	DMA_Config USART_DMA_Instance_TX;
+	DMA_Config USART_DMA_Instance_RX;
 }USART_Config;
 
 int8_t USART_Clock_Enable(USART_Config *config);

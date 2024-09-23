@@ -55,14 +55,7 @@ static char auchCRCLo[] = {
 
 
 
-void USART1_IRQHandler(void)
-{
-	if((USART1 -> SR & USART_SR_IDLE) == USART_SR_IDLE)
-	{
 
-		USART1 -> SR |= USART_SR_IDLE;
-	}
-}
 
 
 

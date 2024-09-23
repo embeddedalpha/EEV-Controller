@@ -1352,7 +1352,7 @@ void DMA_Set_Target(DMA_Config *config)
     config -> Request.Stream -> NDTR = config -> buffer_length;
 
     // Set memory pointer increment mode
-    config -> Request.Stream -> CR |= config -> memory_pointer_increment;
+    config -> Request.Stream -> CR |= DMA_SxCR_MINC;
 
     // Set the memory address
     config -> Request.Stream -> M0AR = (uint32_t)config->memory_address;

@@ -403,7 +403,7 @@ int8_t USART_Init(USART_Config *config)
 
 	config->Port->CR2 |= config->stop_bits;
 
-	if(config->dma_enable == USART_Configuration.DMA_Enable.RX_Enable)
+	if((config->dma_enable & USART_Configuration.DMA_Enable.RX_Enable) == USART_Configuration.DMA_Enable.RX_Enable)
 	{
 		config -> Port -> CR3 |= USART_CR3_DMAR;
 
@@ -438,9 +438,10 @@ int8_t USART_Init(USART_Config *config)
 		xUSART_RX[usart_dma_instance_number].memory_data_size = DMA_Configuration.Memory_Data_Size.byte;
 		xUSART_RX[usart_dma_instance_number].peripheral_data_size = DMA_Configuration.Peripheral_Data_Size.byte;
 		xUSART_RX[usart_dma_instance_number].peripheral_pointer_increment = DMA_Configuration.Peripheral_Pointer_Increment.Disable;
-		xUSART_RX[usart_dma_instance_number].memory_pointer_increment = DMA_Configuration.Memory_Pointer_Increment.Disable;
+		xUSART_RX[usart_dma_instance_number].memory_pointer_increment = DMA_Configuration.Memory_Pointer_Increment.Enable;
 		xUSART_RX[usart_dma_instance_number].priority_level = DMA_Configuration.Priority_Level.High;
 		xUSART_RX[usart_dma_instance_number].transfer_direction = DMA_Configuration.Transfer_Direction.Peripheral_to_memory;
+		config ->USART_DMA_Instance_RX = xUSART_RX[usart_dma_instance_number];
 		DMA_Init(&xUSART_RX[usart_dma_instance_number]);
 	}
 	else
@@ -487,6 +488,7 @@ int8_t USART_Init(USART_Config *config)
 		xUSART_TX[usart_dma_instance_number].memory_pointer_increment = DMA_Configuration.Memory_Pointer_Increment.Enable;
 		xUSART_TX[usart_dma_instance_number].priority_level = DMA_Configuration.Priority_Level.Very_high;
 		xUSART_TX[usart_dma_instance_number].transfer_direction = DMA_Configuration.Transfer_Direction.Memory_to_peripheral;
+		config ->USART_DMA_Instance_TX = xUSART_TX[usart_dma_instance_number];
 		DMA_Init(&xUSART_TX[usart_dma_instance_number]);
 	}
 	else
@@ -598,11 +600,17 @@ int8_t USART_RX_Buffer(USART_Config *config, uint8_t *rx_buffer, uint16_t length
 			xUSART_RX[usart_dma_instance_number].circular_mode = DMA_Configuration.Circular_Mode.Enable;
 		}
 
-		xUSART_RX[usart_dma_instance_number].memory_address = (uint32_t)&rx_buffer;
-		xUSART_RX[usart_dma_instance_number].peripheral_address = config->Port->DR;
+		xUSART_RX[usart_dma_instance_number].memory_address = (uint32_t)rx_buffer;
+		xUSART_RX[usart_dma_instance_number].peripheral_address = (uint32_t)&config->Port->DR;
 		xUSART_RX[usart_dma_instance_number].buffer_length = length;
 		DMA_Set_Target(&xUSART_RX[usart_dma_instance_number]);
 		DMA_Set_Trigger(&xUSART_RX[usart_dma_instance_number]);
+
+
+		if(circular_buffer_enable == 1)
+		{
+
+
 
 		if(config->Port == USART1)
 		{
@@ -652,6 +660,9 @@ int8_t USART_RX_Buffer(USART_Config *config, uint8_t *rx_buffer, uint16_t length
 			}
 			USART6_RX_DMA_Flag.Transfer_Complete_Flag = false;
 		}
+
+		}
+
 	}
 	else
 	{ //Will Take more time
