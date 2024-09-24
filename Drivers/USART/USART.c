@@ -493,7 +493,7 @@ int8_t USART_Init(USART_Config *config)
 	}
 	else
 	{
-		config -> Port -> CR3 &= ~USART_CR3_DMAR;
+		config -> Port -> CR3 &= ~USART_CR3_DMAT;
 	}
 
 	if(config->mode == USART_Configuration.Mode.Single_Wire_Half_Duplex) config -> Port -> CR3 |= USART_CR3_HDSEL;
