@@ -7,8 +7,7 @@
 
 USART_Config test;
 
-uint8_t buffer[300];
-uint8_t buffer1[100];
+uint8_t buffer[15];
 
 uint16_t length = 0;
 
@@ -29,9 +28,9 @@ void USART1_IRQHandler(void)
 
 	if((USART1 -> SR & USART_SR_IDLE) == USART_SR_IDLE)
 	{
+		test.USART_DMA_Instance_RX.Request.Stream -> CR &= ~DMA_SxCR_EN;
 
-
-
+		length = 10-test.USART_DMA_Instance_RX.Request.Stream -> NDTR;
 		int temp = test.Port -> SR;
 	}
 }
@@ -48,7 +47,7 @@ int main(void)
 	test.RX_Pin = USART1_RX_Pin.PB7;
 	test.TX_Pin = USART1_TX_Pin.PB6;
 	test.baudrate = 9600;
-	test.dma_enable = USART_Configuration.DMA_Enable.TX_Enable | USART_Configuration.DMA_Enable.RX_Enable;
+	test.dma_enable =  USART_Configuration.DMA_Enable.RX_Enable;
 	test.hardware_flow = USART_Configuration.Hardware_Flow.Disable;
 	test.interrupt = USART_Configuration.Interrupt_Type.IDLE_Enable |  USART_Configuration.Interrupt_Type.Receiver_Empty_Enable;
 	test.mode = USART_Configuration.Mode.Asynchronous;
@@ -57,7 +56,7 @@ int main(void)
 
 	USART_Init(&test);
 
-	USART_RX_Buffer(&test, &buffer[0], 300, 0);
+	USART_RX_Buffer(&test, &buffer[0], 15, 0);
 
 
 	GPIO_Pin_Init(GPIOD, 12, GPIO_Configuration.Mode.General_Purpose_Output, GPIO_Configuration.Output_Type.Push_Pull,
@@ -70,6 +69,7 @@ int main(void)
 	{
 
 //		printConsole("hello");
+
 		GPIO_Pin_High(GPIOD, 12);
 		Delay_s(1);
 		GPIO_Pin_Low(GPIOD, 12);
