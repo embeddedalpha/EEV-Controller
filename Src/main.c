@@ -5,36 +5,6 @@
 #include "Console/Console.h"
 
 
-USART_Config test;
-
-uint8_t buffer[15];
-
-uint16_t length = 0;
-
-int temp = 0;
-
-#define RX_DMA_STREAM DMA2_Stream2
-#define RX_DMA_CHANNEL 4
-
-void USART1_IRQHandler(void)
-{
-
-	if((USART1 -> SR & USART_SR_RXNE) == USART_SR_RXNE)
-	{
-//		buffer[temp] = test.Port ->DR;
-//		temp += 1;
-		USART1 -> SR &= ~USART_SR_RXNE;
-	}
-
-	if((USART1 -> SR & USART_SR_IDLE) == USART_SR_IDLE)
-	{
-		test.USART_DMA_Instance_RX.Request.Stream -> CR &= ~DMA_SxCR_EN;
-
-		length = 10-test.USART_DMA_Instance_RX.Request.Stream -> NDTR;
-		int temp = test.Port -> SR;
-	}
-}
-
 
 
 int main(void)
@@ -43,20 +13,6 @@ int main(void)
 	Delay_Config();
 //	Console_Init(9600);
 
-	test.Port = USART1;
-	test.RX_Pin = USART1_RX_Pin.PB7;
-	test.TX_Pin = USART1_TX_Pin.PB6;
-	test.baudrate = 9600;
-	test.dma_enable =  USART_Configuration.DMA_Enable.RX_Enable;
-	test.hardware_flow = USART_Configuration.Hardware_Flow.Disable;
-	test.interrupt = USART_Configuration.Interrupt_Type.IDLE_Enable |  USART_Configuration.Interrupt_Type.Receiver_Empty_Enable;
-	test.mode = USART_Configuration.Mode.Asynchronous;
-	test.parity = USART_Configuration.Parity_Type.Disable;
-	test.stop_bits = USART_Configuration.Stop_Bits.Bit_1;
-
-	USART_Init(&test);
-
-	USART_RX_Buffer(&test, &buffer[0], 15, 0);
 
 
 	GPIO_Pin_Init(GPIOD, 12, GPIO_Configuration.Mode.General_Purpose_Output, GPIO_Configuration.Output_Type.Push_Pull,
@@ -68,7 +24,6 @@ int main(void)
 	for(;;)
 	{
 
-//		printConsole("hello");
 
 		GPIO_Pin_High(GPIOD, 12);
 		Delay_s(1);
