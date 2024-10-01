@@ -8,7 +8,8 @@ Communication/MODBus/MODBus.o: ../Communication/MODBus/MODBus.c \
  B:/STM32F407V_Firmware_C_Lang/EEV_Controller/Drivers/GPIO/GPIO_Defs.h \
  B:/STM32F407V_Firmware_C_Lang/EEV_Controller/Drivers/USART/USART_Defs.h \
  B:/STM32F407V_Firmware_C_Lang/EEV_Controller/Drivers/DMA/DMA.h \
- B:/STM32F407V_Firmware_C_Lang/EEV_Controller/Drivers/DMA/DMA_Defs.h
+ B:/STM32F407V_Firmware_C_Lang/EEV_Controller/Drivers/DMA/DMA_Defs.h \
+ ../Communication/MODBus/MODBus_Defs.h
 ../Communication/MODBus/MODBus.h:
 ../Inc/main.h:
 ../Inc/stm32f407xx.h:
@@ -25,3 +26,4 @@ B:/STM32F407V_Firmware_C_Lang/EEV_Controller/Drivers/GPIO/GPIO_Defs.h:
 B:/STM32F407V_Firmware_C_Lang/EEV_Controller/Drivers/USART/USART_Defs.h:
 B:/STM32F407V_Firmware_C_Lang/EEV_Controller/Drivers/DMA/DMA.h:
 B:/STM32F407V_Firmware_C_Lang/EEV_Controller/Drivers/DMA/DMA_Defs.h:
+../Communication/MODBus/MODBus_Defs.h:
