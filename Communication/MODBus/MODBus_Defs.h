@@ -5,6 +5,8 @@
  *      Author: kunal
  */
 
+#if MODBUS_INCLUDED == 1
+
 #ifndef MODBUS_MODBUS_DEFS_H_
 #define MODBUS_MODBUS_DEFS_H_
 
@@ -70,3 +72,5 @@ static const struct MODBus_Exception_Code{
 
 
 #endif /* MODBUS_MODBUS_DEFS_H_ */
+
+#endif

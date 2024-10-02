@@ -5,8 +5,11 @@
  *      Author: kunal
  */
 
+#if MODBUS_INCLUDED == 1
+
 #ifndef MODBUS_MODBUS_H_
 #define MODBUS_MODBUS_H_
+
 
 #include "main.h"
 #include "USART/USART.h"
@@ -52,3 +55,5 @@ int8_t Modbus_Init(Modbus_Config *config);
 
 
 #endif /* MODBUS_MODBUS_H_ */
+
+#endif
