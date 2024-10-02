@@ -449,7 +449,7 @@ int8_t USART_Init(USART_Config *config)
 		config -> Port  -> CR3 &= ~USART_CR3_DMAR;
 	}
 
-	if(config->dma_enable == USART_Configuration.DMA_Enable.TX_Enable)
+	if((config->dma_enable & USART_Configuration.DMA_Enable.TX_Enable) == USART_Configuration.DMA_Enable.TX_Enable)
 	{
 
 		config -> Port  -> CR3 |= USART_CR3_DMAT;
