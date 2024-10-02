@@ -25,6 +25,9 @@ void Stepper_Motor_Init(void)
 
 
 	RCC->APB1ENR |= RCC_APB1ENR_TIM4EN; // Enable TIM5 clock
+
+	GPIO_Pin_Init(GPIOD, 11, GPIO_Configuration.Mode.General_Purpose_Output, GPIO_Configuration.Output_Type.Push_Pull, GPIO_Configuration.Speed.Very_High_Speed, GPIO_Configuration.Pull.No_Pull_Up_Down, GPIO_Configuration.Alternate_Functions.None);
+
 	GPIO_Pin_Init(GPIOD, 12, GPIO_Configuration.Mode.Alternate_Function, GPIO_Configuration.Output_Type.Push_Pull, GPIO_Configuration.Speed.Very_High_Speed, GPIO_Configuration.Pull.No_Pull_Up_Down, GPIO_Configuration.Alternate_Functions.TIM_4);
 
 	Stepper_Motor.Request = DMA_Configuration.Request.TIM4_CH1;
@@ -51,7 +54,7 @@ void Stepper_Motor_Init(void)
 }
 
 
-void Set_Stepper_Motor_Position(float control_signal, uint16_t speed)
+void Set_Stepper_Motor_Position(float control_signal, uint16_t speed, int direction)
 {
     TIM4->PSC = 84000000/(100*speed)-1;
 	for(int i = 0; i < array_length; i++)
@@ -64,11 +67,24 @@ void Set_Stepper_Motor_Position(float control_signal, uint16_t speed)
 		data_array[i]= 50;
 	}
 
+
+
 	Stepper_Motor.memory_address = (uint32_t)&(data_array[0]);
 	Stepper_Motor.peripheral_address = (uint32_t)&(TIM4->CCR1);
 	Stepper_Motor.buffer_length = control_signal+1;
 	DMA_Set_Target(&Stepper_Motor);
 	DMA_Set_Trigger(&Stepper_Motor);
+
+	if(direction == 1)
+	{
+		GPIO_Pin_High(GPIOD, 11);
+	}
+
+	if(direction == -1)
+	{
+		GPIO_Pin_Low(GPIOD, 11);
+	}
+
 
 	TIM4 -> CR1 |= TIM_CR1_CEN;
 
