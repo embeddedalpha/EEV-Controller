@@ -1,0 +1,4 @@
+../Application/Application.c:33:7:Get_Temperature	32	static
+../Application/Application.c:48:7:Get_Pressure	16	static
+../Application/Application.c:54:7:Get_Superheat	24	static
+../Application/Application.c:61:6:Control_Stepper_Motor	32	static

@@ -22,6 +22,7 @@ C_DEPS :=
 
 # Every subdirectory with source files must be described here
 SUBDIRS := \
+Application \
 Communication/MODBus \
 Drivers/ADC \
 Drivers/Console \
@@ -30,8 +31,8 @@ Drivers/GPIO \
 Drivers/RTC \
 Drivers/Stepper_Motor \
 Drivers/USART \
-Singal_Processing/Kalman_Filter \
-Singal_Processing/PID \
+Signal_Processing/Kalman_Filter \
+Signal_Processing/PID \
 Src \
 Startup \
 

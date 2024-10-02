@@ -11,8 +11,8 @@ RM := rm -rf
 -include sources.mk
 -include Startup/subdir.mk
 -include Src/subdir.mk
--include Singal_Processing/PID/subdir.mk
--include Singal_Processing/Kalman_Filter/subdir.mk
+-include Signal_Processing/PID/subdir.mk
+-include Signal_Processing/Kalman_Filter/subdir.mk
 -include Drivers/USART/subdir.mk
 -include Drivers/Stepper_Motor/subdir.mk
 -include Drivers/RTC/subdir.mk
@@ -21,6 +21,7 @@ RM := rm -rf
 -include Drivers/Console/subdir.mk
 -include Drivers/ADC/subdir.mk
 -include Communication/MODBus/subdir.mk
+-include Application/subdir.mk
 -include objects.mk
 
 ifneq ($(MAKECMDGOALS),clean)

@@ -1,6 +1,0 @@
-../Communication/MODBus/MODBus.c:38:6:USART1_IRQHandler	5
-../Communication/MODBus/MODBus.c:114:12:Validate_Function_Code	9
-../Communication/MODBus/MODBus.c:155:13:Handle_Modbus_Error	1
-../Communication/MODBus/MODBus.c:170:16:ModBus_CRC16	2
-../Communication/MODBus/MODBus.c:188:8:Modbus_Init	1
-../Communication/MODBus/MODBus.c:212:6:Modbus_Slave_Run	6

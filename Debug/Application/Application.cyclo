@@ -1,0 +1,4 @@
+../Application/Application.c:33:7:Get_Temperature	1
+../Application/Application.c:48:7:Get_Pressure	1
+../Application/Application.c:54:7:Get_Superheat	1
+../Application/Application.c:61:6:Control_Stepper_Motor	7

@@ -5,23 +5,23 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
-../Drivers/Stepper_Motor/Stepper_Motor.c 
+../Signal_Processing/PID/PID.c 
 
 OBJS += \
-./Drivers/Stepper_Motor/Stepper_Motor.o 
+./Signal_Processing/PID/PID.o 
 
 C_DEPS += \
-./Drivers/Stepper_Motor/Stepper_Motor.d 
+./Signal_Processing/PID/PID.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes
-Drivers/Stepper_Motor/%.o Drivers/Stepper_Motor/%.su Drivers/Stepper_Motor/%.cyclo: ../Drivers/Stepper_Motor/%.c Drivers/Stepper_Motor/subdir.mk
+Signal_Processing/PID/%.o Signal_Processing/PID/%.su Signal_Processing/PID/%.cyclo: ../Signal_Processing/PID/%.c Signal_Processing/PID/subdir.mk
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F407VGTx -c -I../Inc -I"B:/STM32F407V_Firmware_C_Lang/EEV_Controller/Drivers" -I"B:/STM32F407V_Firmware_C_Lang/EEV_Controller/Communication" -I"B:/STM32F407V_Firmware_C_Lang/EEV_Controller/Refrigerant_Data" -I"B:/STM32F407V_Firmware_C_Lang/EEV_Controller/Application" -I"B:/STM32F407V_Firmware_C_Lang/EEV_Controller/Signal_Processing" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "$@"
 
-clean: clean-Drivers-2f-Stepper_Motor
+clean: clean-Signal_Processing-2f-PID
 
-clean-Drivers-2f-Stepper_Motor:
-	-$(RM) ./Drivers/Stepper_Motor/Stepper_Motor.cyclo ./Drivers/Stepper_Motor/Stepper_Motor.d ./Drivers/Stepper_Motor/Stepper_Motor.o ./Drivers/Stepper_Motor/Stepper_Motor.su
+clean-Signal_Processing-2f-PID:
+	-$(RM) ./Signal_Processing/PID/PID.cyclo ./Signal_Processing/PID/PID.d ./Signal_Processing/PID/PID.o ./Signal_Processing/PID/PID.su
 
-.PHONY: clean-Drivers-2f-Stepper_Motor
+.PHONY: clean-Signal_Processing-2f-PID
 
