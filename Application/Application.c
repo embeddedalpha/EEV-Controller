@@ -11,6 +11,12 @@ uint16_t sensor_buffer[2];
 
 ADC_Config sensor_config;
 
+const int STEP_PER_DEGREE	= 10;
+const int MAX_STEPS			= 2000;
+const int MAX_SPEED			= 800;
+const int MIN_SPEED			= 200;
+const int RATE_LIMIT		= 50;
+
 
 float temp_kelvin = 0.0;
 float temp_celsius = 0.0;
@@ -45,3 +51,28 @@ float Get_Pressure(void)
 }
 
 
+float Get_Superheat(float temp, float sat_temp)
+{
+	float superheat = temp - sat_temp;
+
+	return superheat;
+}
+
+void Control_Stepper_Motor(float control_Signal)
+{
+	int steps_to_move = (int)(control_Signal * STEP_PER_DEGREE);
+
+	if(steps_to_move > RATE_LIMIT) steps_to_move = RATE_LIMIT;
+	if(steps_to_move < -RATE_LIMIT) steps_to_move = -RATE_LIMIT;
+
+	if(steps_to_move > MAX_STEPS) steps_to_move = MAX_STEPS;
+	if(steps_to_move < -MAX_STEPS) steps_to_move = -MAX_STEPS;
+
+	int direction = (steps_to_move > 0) ? 1 : -1; // 1 for open and -1 for close
+
+	int speed = MIN_SPEED + (abs(steps_to_move) * (MAX_SPEED - MIN_SPEED)/MAX_STEPS);
+
+	if(speed > MAX_SPEED) speed = MAX_SPEED;
+
+	Set_Stepper_Motor_Position(steps_to_move, speed, direction);
+}
