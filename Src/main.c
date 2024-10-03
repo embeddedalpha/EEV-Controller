@@ -3,26 +3,37 @@
 #include "USART/USART.h"
 
 
+
 USART_Config Modbus_USART;
 
-#define Modbus_RX_Buffer_Length 20
+#define Modbus_RX_Buffer_Length 200
 
-uint8_t Modbus_RX_Buffer_1[Modbus_RX_Buffer_Length];
+volatile uint8_t Modbus_RX_Buffer_1[Modbus_RX_Buffer_Length];
 
-uint16_t Modbus_Message_length = 0;
+volatile uint16_t Modbus_Message_length = 0;
 
 void USART1_IRQHandler(void)
 {
 
+	uint32_t temp1 = 0;
+	do {
 		Modbus_USART.USART_DMA_Instance_RX.Request.Stream -> CR &= ~DMA_SxCR_EN;
+		temp1 = Modbus_USART.USART_DMA_Instance_RX.Request.Stream -> CR & DMA_SxCR_EN;
+	} while (temp1 != 0);
+
 
 		Modbus_Message_length = Modbus_RX_Buffer_Length - Modbus_USART.USART_DMA_Instance_RX.Request.Stream -> NDTR;
 
 		static int temp = 0;
 		temp = Modbus_USART.Port -> SR;
-		USART_RX_Buffer(&Modbus_USART, &Modbus_RX_Buffer_1[0], Modbus_RX_Buffer_Length, 0);
 
-		USART_TX_Buffer(&Modbus_USART, &Modbus_RX_Buffer_1[0], Modbus_Message_length);
+		if(Modbus_Message_length > 0)
+		{
+			USART_TX_Buffer(&Modbus_USART, &Modbus_RX_Buffer_1, Modbus_Message_length);
+
+			Modbus_Message_length = 0;
+		}
+		USART_RX_Buffer(&Modbus_USART, &Modbus_RX_Buffer_1[0], Modbus_RX_Buffer_Length, 0);
 }
 
 
@@ -56,6 +67,7 @@ int main(void)
 
 	for(;;)
 	{
+
 
 		GPIO_Pin_High(GPIOD, 12);
 		Delay_s(1);
