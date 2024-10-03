@@ -1064,6 +1064,7 @@ void DMA2_Stream7_IRQHandler(void)
 {
 	if(DMA2 -> HISR & DMA_HISR_FEIF7)
 	{
+		USART1_TX_DMA_Flag.Triggered = true;
 		DMA2 -> HIFCR |= DMA_HIFCR_CFEIF7;
 		TIM8_CH4_DMA_Flag.Fifo_Error_Flag = true;
 		USART1_TX_DMA_Flag.Fifo_Error_Flag = true;
@@ -1073,6 +1074,7 @@ void DMA2_Stream7_IRQHandler(void)
 	/************************************************************************************************************/
 	if(DMA2 -> HISR & DMA_HISR_DMEIF7)
 	{
+		USART1_TX_DMA_Flag.Triggered = true;
 		DMA2 -> HIFCR |= DMA_HIFCR_CDMEIF7;
 		TIM8_CH4_DMA_Flag.Direct_Mode_Error_Flag = true;
 		USART1_TX_DMA_Flag.Direct_Mode_Error_Flag = true;
@@ -1082,6 +1084,7 @@ void DMA2_Stream7_IRQHandler(void)
 	/************************************************************************************************************/
 	if(DMA2 -> HISR & DMA_HISR_TEIF7)
 	{
+		USART1_TX_DMA_Flag.Triggered = true;
 		DMA2 -> HIFCR |= DMA_HIFCR_CTEIF7;
 		TIM8_CH4_DMA_Flag.Transfer_Error_Flag = true;
 		USART1_TX_DMA_Flag.Transfer_Error_Flag = true;
@@ -1091,6 +1094,7 @@ void DMA2_Stream7_IRQHandler(void)
 	/************************************************************************************************************/
 	if(DMA2 -> HISR & DMA_HISR_HTIF7)
 	{
+		USART1_TX_DMA_Flag.Triggered = true;
 		DMA2 -> HIFCR |= DMA_HIFCR_CHTIF7;
 		TIM8_CH4_DMA_Flag.Half_Transfer_Complete_Flag = true;
 		USART1_TX_DMA_Flag.Half_Transfer_Complete_Flag = true;
@@ -1100,6 +1104,7 @@ void DMA2_Stream7_IRQHandler(void)
 	/************************************************************************************************************/
 	if(DMA2 -> HISR & DMA_HISR_TCIF7)
 	{
+		USART1_TX_DMA_Flag.Triggered = true;
 		DMA2 -> HIFCR |= DMA_HIFCR_CTCIF7;
 		TIM8_CH4_DMA_Flag.Transfer_Complete_Flag = true;
 		USART1_TX_DMA_Flag.Transfer_Complete_Flag = true;
@@ -1288,7 +1293,9 @@ int8_t DMA_Init(DMA_Config *config)
             	NVIC_EnableIRQ(DMA2_Stream6_IRQn);
             }
             else if(config->Request.Stream == DMA2_Stream7){
+//            	NVIC_SetPriority(DMA2_Stream7_IRQn,0);
             	NVIC_EnableIRQ(DMA2_Stream7_IRQn);
+
             }
         }
     }

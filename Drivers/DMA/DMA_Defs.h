@@ -27,6 +27,7 @@
  */
 typedef struct DMA_Flags_Typedef
 {
+	bool Triggered;
     bool Transfer_Complete_Flag;       /**< Indicates if the transfer is complete */
     bool Half_Transfer_Complete_Flag;  /**< Indicates if half of the transfer is complete */
     bool Transfer_Error_Flag;          /**< Indicates if there was a transfer error */
