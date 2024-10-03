@@ -375,6 +375,7 @@ int8_t USART_Init(USART_Config *config)
 
 		if(config -> Port == USART1)
 		{
+			NVIC_SetPriority(USART1_IRQn, 0);
 			NVIC_EnableIRQ(USART1_IRQn);
 		}
 		else if(config -> Port == USART2)
@@ -434,7 +435,7 @@ int8_t USART_Init(USART_Config *config)
 
 		xUSART_RX[usart_dma_instance_number].circular_mode = DMA_Configuration.Circular_Mode.Disable;
 		xUSART_RX[usart_dma_instance_number].flow_control = DMA_Configuration.Flow_Control.DMA_Control;
-		xUSART_RX[usart_dma_instance_number].interrupts = DMA_Configuration.DMA_Interrupts.Transfer_Complete | DMA_Configuration.DMA_Interrupts.Transfer_Error;
+		xUSART_RX[usart_dma_instance_number].interrupts = DMA_Configuration.DMA_Interrupts.Disable;
 		xUSART_RX[usart_dma_instance_number].memory_data_size = DMA_Configuration.Memory_Data_Size.byte;
 		xUSART_RX[usart_dma_instance_number].peripheral_data_size = DMA_Configuration.Peripheral_Data_Size.byte;
 		xUSART_RX[usart_dma_instance_number].peripheral_pointer_increment = DMA_Configuration.Peripheral_Pointer_Increment.Disable;
@@ -517,8 +518,15 @@ int8_t USART_TX_Buffer(USART_Config *config, uint8_t *tx_buffer, uint16_t length
 		DMA_Set_Target(&xUSART_TX[usart_dma_instance_number]);
 		DMA_Set_Trigger(&xUSART_TX[usart_dma_instance_number]);
 
+
 		if(config->Port == USART1)
 		{
+			if(USART1_TX_DMA_Flag.Triggered != 1)
+			{
+				USART1_TX_DMA_Flag.Transfer_Complete_Flag = (xUSART_TX[usart_dma_instance_number].Request.Controller -> HISR & DMA_HISR_TCIF7_Msk) >> DMA_HISR_TCIF7_Pos;
+				USART1_TX_DMA_Flag.Transfer_Complete_Flag = (xUSART_TX[usart_dma_instance_number].Request.Controller -> HISR & DMA_HISR_HTIF7_Msk) >> DMA_HISR_HTIF7_Pos;
+			}
+
 			while((USART1_TX_DMA_Flag.Transfer_Complete_Flag == false))
 			{
 				if(USART1_TX_DMA_Flag.Transfer_Error_Flag == true) {return -1;}
