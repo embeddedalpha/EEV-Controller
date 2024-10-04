@@ -5,9 +5,9 @@
 ../Drivers/USART/USART.c:31:6:USART_Config_Reset	1
 ../Drivers/USART/USART.c:41:8:USART_Clock_Enable	7
 ../Drivers/USART/USART.c:75:8:USART_Clock_Disable	7
-../Drivers/USART/USART.c:108:13:PIN_Setup	81
-../Drivers/USART/USART.c:313:8:USART_Init	31
-../Drivers/USART/USART.c:510:8:USART_TX_Buffer	23
-../Drivers/USART/USART.c:598:8:USART_RX_Buffer	24
-../Drivers/USART/USART.c:688:6:USART_TX_Single_Byte	2
-../Drivers/USART/USART.c:694:10:USART_RX_Single_Byte	2
+../Drivers/USART/USART.c:108:13:PIN_Setup	89
+../Drivers/USART/USART.c:327:8:USART_Init	32
+../Drivers/USART/USART.c:544:8:USART_TX_Buffer	23
+../Drivers/USART/USART.c:632:8:USART_RX_Buffer	24
+../Drivers/USART/USART.c:720:6:USART_TX_Single_Byte	2
+../Drivers/USART/USART.c:726:10:USART_RX_Single_Byte	2

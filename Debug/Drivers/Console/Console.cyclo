@@ -1,3 +1,4 @@
-../Drivers/Console/Console.c:15:7:Console_Init	1
-../Drivers/Console/Console.c:28:7:printConsole	1
-../Drivers/Console/Console.c:51:6:readConsole	1
+../Drivers/Console/Console.c:24:6:UART4_IRQHandler	2
+../Drivers/Console/Console.c:46:7:Console_Init	1
+../Drivers/Console/Console.c:60:7:printConsole	1
+../Drivers/Console/Console.c:69:5:readConsole	2

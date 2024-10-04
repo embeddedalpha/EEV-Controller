@@ -2,9 +2,4 @@
 ../Inc/core_cm4.h:2022:26:SysTick_Config	16	static
 ../Inc/main.h:51:22:MCU_Clock_Setup	16	static
 ../Inc/main.h:115:26:Delay_Config	4	static
-../Inc/main.h:140:26:Delay_ms	24	static
-../Inc/main.h:161:26:Delay_s	16	static
-B:/STM32F407V_Firmware_C_Lang/EEV_Controller/Drivers/GPIO/GPIO.h:62:23:GPIO_Pin_Low	16	static
-B:/STM32F407V_Firmware_C_Lang/EEV_Controller/Drivers/GPIO/GPIO.h:104:23:GPIO_Pin_High	16	static
-../Src/main.c:15:6:USART1_IRQHandler	16	static
-../Src/main.c:40:5:main	32	static
+../Src/main.c:7:5:main	48	static
