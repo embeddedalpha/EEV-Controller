@@ -265,6 +265,20 @@ static void PIN_Setup(USART_Config *config)
 
 		}
 	}
+	else if(config -> Port == UART4)
+	{
+		if((config->mode == USART_Configuration.Mode.Asynchronous) ||
+		   (config->mode == USART_Configuration.Mode.IrDA) ||
+		   (config->mode == USART_Configuration.Mode.LIN))
+		{
+			if(config->TX_Pin == UART4_TX_Pin.PA0)GPIO_Pin_Init(GPIOA, UART4_TX_Pin.PA0, GPIO_Configuration.Mode.Alternate_Function, GPIO_Configuration.Output_Type.Push_Pull, GPIO_Configuration.Speed.High_Speed, GPIO_Configuration.Pull.No_Pull_Up_Down, GPIO_Configuration.Alternate_Functions.USART_4);
+			else if(config->TX_Pin == UART4_TX_Pin.PC10)GPIO_Pin_Init(GPIOC, UART4_TX_Pin.PC10, GPIO_Configuration.Mode.Alternate_Function, GPIO_Configuration.Output_Type.Push_Pull, GPIO_Configuration.Speed.High_Speed, GPIO_Configuration.Pull.No_Pull_Up_Down, GPIO_Configuration.Alternate_Functions.USART_4);
+
+			if(config->RX_Pin == UART4_RX_Pin.PA1)GPIO_Pin_Init(GPIOA, UART4_RX_Pin.PA1, GPIO_Configuration.Mode.Alternate_Function, GPIO_Configuration.Output_Type.Push_Pull, GPIO_Configuration.Speed.High_Speed, GPIO_Configuration.Pull.No_Pull_Up_Down, GPIO_Configuration.Alternate_Functions.USART_4);
+			else if(config->RX_Pin == UART4_RX_Pin.PC11)GPIO_Pin_Init(GPIOC, UART4_RX_Pin.PC11, GPIO_Configuration.Mode.Alternate_Function, GPIO_Configuration.Output_Type.Push_Pull, GPIO_Configuration.Speed.High_Speed, GPIO_Configuration.Pull.No_Pull_Up_Down, GPIO_Configuration.Alternate_Functions.USART_4);
+		}
+	}
+
 //	else if(config->Port == UART4)
 //	{
 //		if((config->mode == USART_Mode.Asynchronous) ||
@@ -320,12 +334,32 @@ int8_t USART_Init(USART_Config *config)
 
 //	USART1 -> CR1 |= USART_CR1_UE;
 
-	double brr = (168000000.0/ (16.0 * 2.0 * (double)(config->baudrate)));
-	double div_frac, mantissa;
-	separateFractionAndIntegral(brr, &div_frac, &mantissa);
 
-	int div_frac_1 = (int)(ceil(div_frac*16.0));
-	int mantissa_1 = (int)(ceil(mantissa));
+	double brr;
+	double div_frac, mantissa;
+	int div_frac_1;
+	int mantissa_1;
+
+	if(config -> Port == USART1)
+	{
+		 brr = (168000000.0/ (16.0 * 2.0 * (double)(config->baudrate)));
+		 div_frac, mantissa;
+		 separateFractionAndIntegral(brr, &div_frac, &mantissa);
+		 div_frac_1 = (int)(ceil(div_frac*16.0));
+		 mantissa_1 = (int)(ceil(mantissa));
+	}
+	else
+	{
+		 brr = (168000000.0/ (2 * 16.0 * 2.0 * (double)(config->baudrate)));
+		 div_frac, mantissa;
+		 separateFractionAndIntegral(brr, &div_frac, &mantissa);
+		 div_frac_1 = (int)(ceil(div_frac*16.0));
+		 mantissa_1 = (int)(ceil(mantissa));
+
+	}
+
+
+
 
 	config->Port->BRR = (mantissa_1<<4)|(div_frac_1);
 	config->Port->CR1 |= config->parity;
@@ -617,8 +651,6 @@ int8_t USART_RX_Buffer(USART_Config *config, uint8_t *rx_buffer, uint16_t length
 
 		if(circular_buffer_enable == 1)
 		{
-
-
 
 		if(config->Port == USART1)
 		{
