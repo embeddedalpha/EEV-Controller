@@ -15,9 +15,8 @@ volatile int rx_flag = 0;
 
 volatile int RX_Length = 0;
 
-char RX_Buffer[RX_Buffer_Length];
 
-char TX_Buffer[RX_Buffer_Length];
+char TRX_Buffer[RX_Buffer_Length];
 
 USART_Config serial;
 
@@ -61,9 +60,9 @@ void UART4_IRQHandler(void)
 {
 	va_list args;
 	va_start(args, msg);
-	vsprintf(TX_Buffer, msg, args);
-	uint16_t len = strlen(TX_Buffer);
-	USART_TX_Buffer(&serial, &TX_Buffer[0], len);
+	vsprintf(TRX_Buffer, msg, args);
+	uint16_t len = strlen(TRX_Buffer);
+	USART_TX_Buffer(&serial, &TRX_Buffer[0], len);
 }
 
 int readConsole(const char *msg, ...)
@@ -71,12 +70,12 @@ int readConsole(const char *msg, ...)
 	va_list args;
 	int result;
 	rx_get_flag = 1;
-	USART_RX_Buffer(&serial, &RX_Buffer[0], RX_Buffer_Length, 0);
+	USART_RX_Buffer(&serial, &TRX_Buffer[0], RX_Buffer_Length, 0);
 	while(rx_flag == 0){}
-	RX_Buffer[RX_Length - 1] = 0;
-	RX_Buffer[RX_Length - 2] = 0;
+	TRX_Buffer[RX_Length - 1] = 0;
+	TRX_Buffer[RX_Length - 2] = 0;
 	va_start(args, msg);
-	result = vsscanf(RX_Buffer,msg,args);
+	result = vsscanf(TRX_Buffer,msg,args);
 	va_end(args);
 	rx_get_flag = 0;
 	rx_flag = 0;
