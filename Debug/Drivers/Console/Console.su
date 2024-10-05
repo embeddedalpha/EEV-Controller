@@ -1,4 +1,4 @@
-../Drivers/Console/Console.c:24:6:UART4_IRQHandler	16	static
-../Drivers/Console/Console.c:46:7:Console_Init	16	static
-../Drivers/Console/Console.c:60:7:printConsole	16	static
-../Drivers/Console/Console.c:69:5:readConsole	16	static
+../Drivers/Console/Console.c:23:6:UART4_IRQHandler	16	static
+../Drivers/Console/Console.c:45:7:Console_Init	16	static
+../Drivers/Console/Console.c:59:7:printConsole	16	static
+../Drivers/Console/Console.c:68:5:readConsole	16	static

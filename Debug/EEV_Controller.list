@@ -23,31 +23,31 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, ALLOC, LOAD, DATA
   9 .ccmram       00000000  10000000  10000000  00008054  2**0
                   CONTENTS
- 10 .bss          000007dc  20000054  20000054  00008054  2**2
+ 10 .bss          00000778  20000054  20000054  00008054  2**2
                   ALLOC
- 11 ._user_heap_stack 00000600  20000830  20000830  00008054  2**0
+ 11 ._user_heap_stack 00000604  200007cc  200007cc  00008054  2**0
                   ALLOC
  12 .ARM.attributes 00000030  00000000  00000000  00008054  2**0
                   CONTENTS, READONLY
- 13 .debug_info   00008b34  00000000  00000000  00008084  2**0
+ 13 .debug_info   00008b23  00000000  00000000  00008084  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 14 .debug_abbrev 00000ea0  00000000  00000000  00010bb8  2**0
+ 14 .debug_abbrev 00000ea0  00000000  00000000  00010ba7  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 15 .debug_aranges 00000290  00000000  00000000  00011a58  2**3
+ 15 .debug_aranges 00000290  00000000  00000000  00011a48  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 16 .debug_rnglists 000001e8  00000000  00000000  00011ce8  2**0
+ 16 .debug_rnglists 000001e8  00000000  00000000  00011cd8  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_macro  0000114a  00000000  00000000  00011ed0  2**0
+ 17 .debug_macro  0000114a  00000000  00000000  00011ec0  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_line   000058c3  00000000  00000000  0001301a  2**0
+ 18 .debug_line   000058c3  00000000  00000000  0001300a  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .debug_str    0008fccd  00000000  00000000  000188dd  2**0
+ 19 .debug_str    0008fcd8  00000000  00000000  000188cd  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 20 .comment      00000043  00000000  00000000  000a85aa  2**0
+ 20 .comment      00000043  00000000  00000000  000a85a5  2**0
                   CONTENTS, READONLY
- 21 .debug_frame  00001370  00000000  00000000  000a85f0  2**2
+ 21 .debug_frame  00001370  00000000  00000000  000a85e8  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 22 .debug_line_str 00000056  00000000  00000000  000a9960  2**0
+ 22 .debug_line_str 00000056  00000000  00000000  000a9958  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -988,7 +988,7 @@ Disassembly of section .text:
  8000c26:	4770      	bx	lr
 
 08000c28 <UART4_IRQHandler>:
-char TX_Buffer[RX_Buffer_Length];
+char TRX_Buffer[RX_Buffer_Length];
 
 USART_Config serial;
 
@@ -1063,7 +1063,7 @@ void UART4_IRQHandler(void)
  8000c92:	4770      	bx	lr
  8000c94:	20000070 	.word	0x20000070
  8000c98:	40004c00 	.word	0x40004c00
- 8000c9c:	20000144 	.word	0x20000144
+ 8000c9c:	200000e0 	.word	0x200000e0
  8000ca0:	20000078 	.word	0x20000078
  8000ca4:	20000074 	.word	0x20000074
 
@@ -1125,7 +1125,7 @@ void UART4_IRQHandler(void)
  8000cfa:	46bd      	mov	sp, r7
  8000cfc:	bd80      	pop	{r7, pc}
  8000cfe:	bf00      	nop
- 8000d00:	20000144 	.word	0x20000144
+ 8000d00:	200000e0 	.word	0x200000e0
  8000d04:	40004c00 	.word	0x40004c00
 
 08000d08 <printConsole>:
@@ -1140,17 +1140,17 @@ void UART4_IRQHandler(void)
 	va_start(args, msg);
  8000d10:	f107 0314 	add.w	r3, r7, #20
  8000d14:	603b      	str	r3, [r7, #0]
-	vsprintf(TX_Buffer, msg, args);
+	vsprintf(TRX_Buffer, msg, args);
  8000d16:	683a      	ldr	r2, [r7, #0]
  8000d18:	6939      	ldr	r1, [r7, #16]
  8000d1a:	480a      	ldr	r0, [pc, #40]	@ (8000d44 <printConsole+0x3c>)
  8000d1c:	f003 fcf8 	bl	8004710 <vsiprintf>
-	uint16_t len = strlen(TX_Buffer);
+	uint16_t len = strlen(TRX_Buffer);
  8000d20:	4808      	ldr	r0, [pc, #32]	@ (8000d44 <printConsole+0x3c>)
  8000d22:	f7ff fa55 	bl	80001d0 <strlen>
  8000d26:	4603      	mov	r3, r0
  8000d28:	80fb      	strh	r3, [r7, #6]
-	USART_TX_Buffer(&serial, &TX_Buffer[0], len);
+	USART_TX_Buffer(&serial, &TRX_Buffer[0], len);
  8000d2a:	88fb      	ldrh	r3, [r7, #6]
  8000d2c:	461a      	mov	r2, r3
  8000d2e:	4905      	ldr	r1, [pc, #20]	@ (8000d44 <printConsole+0x3c>)
@@ -1163,8 +1163,8 @@ void UART4_IRQHandler(void)
  8000d3c:	e8bd 4080 	ldmia.w	sp!, {r7, lr}
  8000d40:	b004      	add	sp, #16
  8000d42:	4770      	bx	lr
- 8000d44:	200000e0 	.word	0x200000e0
- 8000d48:	20000144 	.word	0x20000144
+ 8000d44:	2000007c 	.word	0x2000007c
+ 8000d48:	200000e0 	.word	0x200000e0
 
 08000d4c <readConsole>:
 
@@ -1180,7 +1180,7 @@ int readConsole(const char *msg, ...)
  8000d54:	4b18      	ldr	r3, [pc, #96]	@ (8000db8 <readConsole+0x6c>)
  8000d56:	2201      	movs	r2, #1
  8000d58:	601a      	str	r2, [r3, #0]
-	USART_RX_Buffer(&serial, &RX_Buffer[0], RX_Buffer_Length, 0);
+	USART_RX_Buffer(&serial, &TRX_Buffer[0], RX_Buffer_Length, 0);
  8000d5a:	2300      	movs	r3, #0
  8000d5c:	2264      	movs	r2, #100	@ 0x64
  8000d5e:	4917      	ldr	r1, [pc, #92]	@ (8000dbc <readConsole+0x70>)
@@ -1192,14 +1192,14 @@ int readConsole(const char *msg, ...)
  8000d6a:	681b      	ldr	r3, [r3, #0]
  8000d6c:	2b00      	cmp	r3, #0
  8000d6e:	d0fb      	beq.n	8000d68 <readConsole+0x1c>
-	RX_Buffer[RX_Length - 1] = 0;
+	TRX_Buffer[RX_Length - 1] = 0;
  8000d70:	4b15      	ldr	r3, [pc, #84]	@ (8000dc8 <readConsole+0x7c>)
  8000d72:	681b      	ldr	r3, [r3, #0]
  8000d74:	3b01      	subs	r3, #1
  8000d76:	4a11      	ldr	r2, [pc, #68]	@ (8000dbc <readConsole+0x70>)
  8000d78:	2100      	movs	r1, #0
  8000d7a:	54d1      	strb	r1, [r2, r3]
-	RX_Buffer[RX_Length - 2] = 0;
+	TRX_Buffer[RX_Length - 2] = 0;
  8000d7c:	4b12      	ldr	r3, [pc, #72]	@ (8000dc8 <readConsole+0x7c>)
  8000d7e:	681b      	ldr	r3, [r3, #0]
  8000d80:	3b02      	subs	r3, #2
@@ -1209,7 +1209,7 @@ int readConsole(const char *msg, ...)
 	va_start(args, msg);
  8000d88:	f107 0314 	add.w	r3, r7, #20
  8000d8c:	603b      	str	r3, [r7, #0]
-	result = vsscanf(RX_Buffer,msg,args);
+	result = vsscanf(TRX_Buffer,msg,args);
  8000d8e:	683a      	ldr	r2, [r7, #0]
  8000d90:	6939      	ldr	r1, [r7, #16]
  8000d92:	480a      	ldr	r0, [pc, #40]	@ (8000dbc <readConsole+0x70>)
@@ -1236,7 +1236,7 @@ int readConsole(const char *msg, ...)
  8000db6:	bf00      	nop
  8000db8:	20000070 	.word	0x20000070
  8000dbc:	2000007c 	.word	0x2000007c
- 8000dc0:	20000144 	.word	0x20000144
+ 8000dc0:	200000e0 	.word	0x200000e0
  8000dc4:	20000074 	.word	0x20000074
  8000dc8:	20000078 	.word	0x20000078
 
@@ -1507,13 +1507,13 @@ void DMA1_Stream0_IRQHandler(void)
  8000f5a:	f85d 7b04 	ldr.w	r7, [sp], #4
  8000f5e:	4770      	bx	lr
  8000f60:	40026000 	.word	0x40026000
- 8000f64:	20000378 	.word	0x20000378
- 8000f68:	20000358 	.word	0x20000358
- 8000f6c:	20000298 	.word	0x20000298
- 8000f70:	20000270 	.word	0x20000270
- 8000f74:	200001e0 	.word	0x200001e0
- 8000f78:	20000210 	.word	0x20000210
- 8000f7c:	200003c0 	.word	0x200003c0
+ 8000f64:	20000314 	.word	0x20000314
+ 8000f68:	200002f4 	.word	0x200002f4
+ 8000f6c:	20000234 	.word	0x20000234
+ 8000f70:	2000020c 	.word	0x2000020c
+ 8000f74:	2000017c 	.word	0x2000017c
+ 8000f78:	200001ac 	.word	0x200001ac
+ 8000f7c:	2000035c 	.word	0x2000035c
 
 08000f80 <DMA1_Stream1_IRQHandler>:
  * transfer error, half transfer complete, and transfer complete. For each
@@ -1704,11 +1704,11 @@ void DMA1_Stream1_IRQHandler(void)
  8001096:	f85d 7b04 	ldr.w	r7, [sp], #4
  800109a:	4770      	bx	lr
  800109c:	40026000 	.word	0x40026000
- 80010a0:	20000328 	.word	0x20000328
- 80010a4:	20000388 	.word	0x20000388
- 80010a8:	20000290 	.word	0x20000290
- 80010ac:	20000250 	.word	0x20000250
- 80010b0:	200003c8 	.word	0x200003c8
+ 80010a0:	200002c4 	.word	0x200002c4
+ 80010a4:	20000324 	.word	0x20000324
+ 80010a8:	2000022c 	.word	0x2000022c
+ 80010ac:	200001ec 	.word	0x200001ec
+ 80010b0:	20000364 	.word	0x20000364
 
 080010b4 <DMA1_Stream2_IRQHandler>:
  * transfer error, half transfer complete, and transfer complete. For each
@@ -1840,8 +1840,8 @@ void DMA1_Stream2_IRQHandler(void)
  8001174:	4770      	bx	lr
  8001176:	bf00      	nop
  8001178:	40026000 	.word	0x40026000
- 800117c:	20000258 	.word	0x20000258
- 8001180:	200003d0 	.word	0x200003d0
+ 800117c:	200001f4 	.word	0x200001f4
+ 8001180:	2000036c 	.word	0x2000036c
 
 08001184 <DMA1_Stream3_IRQHandler>:
  * transfer error, half transfer complete, and transfer complete. For each
@@ -2072,13 +2072,13 @@ void DMA1_Stream3_IRQHandler(void)
  80012d6:	f85d 7b04 	ldr.w	r7, [sp], #4
  80012da:	4770      	bx	lr
  80012dc:	40026000 	.word	0x40026000
- 80012e0:	20000380 	.word	0x20000380
- 80012e4:	20000360 	.word	0x20000360
- 80012e8:	20000290 	.word	0x20000290
- 80012ec:	20000258 	.word	0x20000258
- 80012f0:	200001c8 	.word	0x200001c8
- 80012f4:	20000208 	.word	0x20000208
- 80012f8:	200003d8 	.word	0x200003d8
+ 80012e0:	2000031c 	.word	0x2000031c
+ 80012e4:	200002fc 	.word	0x200002fc
+ 80012e8:	2000022c 	.word	0x2000022c
+ 80012ec:	200001f4 	.word	0x200001f4
+ 80012f0:	20000164 	.word	0x20000164
+ 80012f4:	200001a4 	.word	0x200001a4
+ 80012f8:	20000374 	.word	0x20000374
 
 080012fc <DMA1_Stream4_IRQHandler>:
  * transfer error, half transfer complete, and transfer complete. For each
@@ -2309,13 +2309,13 @@ void DMA1_Stream4_IRQHandler(void)
  800144e:	f85d 7b04 	ldr.w	r7, [sp], #4
  8001452:	4770      	bx	lr
  8001454:	40026000 	.word	0x40026000
- 8001458:	20000370 	.word	0x20000370
- 800145c:	20000338 	.word	0x20000338
- 8001460:	20000268 	.word	0x20000268
- 8001464:	200001f8 	.word	0x200001f8
- 8001468:	200001d0 	.word	0x200001d0
- 800146c:	20000220 	.word	0x20000220
- 8001470:	200003e0 	.word	0x200003e0
+ 8001458:	2000030c 	.word	0x2000030c
+ 800145c:	200002d4 	.word	0x200002d4
+ 8001460:	20000204 	.word	0x20000204
+ 8001464:	20000194 	.word	0x20000194
+ 8001468:	2000016c 	.word	0x2000016c
+ 800146c:	200001bc 	.word	0x200001bc
+ 8001470:	2000037c 	.word	0x2000037c
 
 08001474 <DMA1_Stream5_IRQHandler>:
  * transfer error, half transfer complete, and transfer complete. For each
@@ -2546,13 +2546,13 @@ void DMA1_Stream5_IRQHandler(void)
  80015c6:	f85d 7b04 	ldr.w	r7, [sp], #4
  80015ca:	4770      	bx	lr
  80015cc:	40026000 	.word	0x40026000
- 80015d0:	20000228 	.word	0x20000228
- 80015d4:	20000350 	.word	0x20000350
- 80015d8:	20000318 	.word	0x20000318
- 80015dc:	20000390 	.word	0x20000390
- 80015e0:	20000340 	.word	0x20000340
- 80015e4:	20000240 	.word	0x20000240
- 80015e8:	200003e8 	.word	0x200003e8
+ 80015d0:	200001c4 	.word	0x200001c4
+ 80015d4:	200002ec 	.word	0x200002ec
+ 80015d8:	200002b4 	.word	0x200002b4
+ 80015dc:	2000032c 	.word	0x2000032c
+ 80015e0:	200002dc 	.word	0x200002dc
+ 80015e4:	200001dc 	.word	0x200001dc
+ 80015e8:	20000384 	.word	0x20000384
 
 080015ec <DMA1_Stream6_IRQHandler>:
  * transfer error, half transfer complete, and transfer complete. For each
@@ -2748,12 +2748,12 @@ void DMA1_Stream6_IRQHandler(void)
  800170c:	4770      	bx	lr
  800170e:	bf00      	nop
  8001710:	40026000 	.word	0x40026000
- 8001714:	20000348 	.word	0x20000348
- 8001718:	20000310 	.word	0x20000310
- 800171c:	20000298 	.word	0x20000298
- 8001720:	20000248 	.word	0x20000248
- 8001724:	200001e8 	.word	0x200001e8
- 8001728:	200003f0 	.word	0x200003f0
+ 8001714:	200002e4 	.word	0x200002e4
+ 8001718:	200002ac 	.word	0x200002ac
+ 800171c:	20000234 	.word	0x20000234
+ 8001720:	200001e4 	.word	0x200001e4
+ 8001724:	20000184 	.word	0x20000184
+ 8001728:	2000038c 	.word	0x2000038c
 
 0800172c <DMA1_Stream7_IRQHandler>:
  * transfer error, half transfer complete, and transfer complete. For each
@@ -2985,13 +2985,13 @@ void DMA1_Stream7_IRQHandler(void)
  800187e:	f85d 7b04 	ldr.w	r7, [sp], #4
  8001882:	4770      	bx	lr
  8001884:	40026000 	.word	0x40026000
- 8001888:	200001d8 	.word	0x200001d8
- 800188c:	200001f0 	.word	0x200001f0
- 8001890:	20000278 	.word	0x20000278
- 8001894:	20000368 	.word	0x20000368
- 8001898:	20000320 	.word	0x20000320
- 800189c:	20000330 	.word	0x20000330
- 80018a0:	200003f8 	.word	0x200003f8
+ 8001888:	20000174 	.word	0x20000174
+ 800188c:	2000018c 	.word	0x2000018c
+ 8001890:	20000214 	.word	0x20000214
+ 8001894:	20000304 	.word	0x20000304
+ 8001898:	200002bc 	.word	0x200002bc
+ 800189c:	200002cc 	.word	0x200002cc
+ 80018a0:	20000394 	.word	0x20000394
 
 080018a4 <DMA2_Stream0_IRQHandler>:
  * transfer error, half transfer complete, and transfer complete. For each
@@ -3182,11 +3182,11 @@ void DMA2_Stream0_IRQHandler(void)
  80019ba:	f85d 7b04 	ldr.w	r7, [sp], #4
  80019be:	4770      	bx	lr
  80019c0:	40026400 	.word	0x40026400
- 80019c4:	20000200 	.word	0x20000200
- 80019c8:	200003a8 	.word	0x200003a8
- 80019cc:	200002c8 	.word	0x200002c8
- 80019d0:	200002d0 	.word	0x200002d0
- 80019d4:	20000400 	.word	0x20000400
+ 80019c4:	2000019c 	.word	0x2000019c
+ 80019c8:	20000344 	.word	0x20000344
+ 80019cc:	20000264 	.word	0x20000264
+ 80019d0:	2000026c 	.word	0x2000026c
+ 80019d4:	2000039c 	.word	0x2000039c
 
 080019d8 <DMA2_Stream1_IRQHandler>:
  * transfer error, half transfer complete, and transfer complete. For each
@@ -3438,14 +3438,14 @@ void DMA2_Stream1_IRQHandler(void)
  8001b4c:	4770      	bx	lr
  8001b4e:	bf00      	nop
  8001b50:	40026400 	.word	0x40026400
- 8001b54:	200003b8 	.word	0x200003b8
- 8001b58:	200002a8 	.word	0x200002a8
- 8001b5c:	200002d8 	.word	0x200002d8
- 8001b60:	20000300 	.word	0x20000300
- 8001b64:	20000308 	.word	0x20000308
- 8001b68:	200003a0 	.word	0x200003a0
- 8001b6c:	20000280 	.word	0x20000280
- 8001b70:	20000408 	.word	0x20000408
+ 8001b54:	20000354 	.word	0x20000354
+ 8001b58:	20000244 	.word	0x20000244
+ 8001b5c:	20000274 	.word	0x20000274
+ 8001b60:	2000029c 	.word	0x2000029c
+ 8001b64:	200002a4 	.word	0x200002a4
+ 8001b68:	2000033c 	.word	0x2000033c
+ 8001b6c:	2000021c 	.word	0x2000021c
+ 8001b70:	200003a4 	.word	0x200003a4
 
 08001b74 <DMA2_Stream2_IRQHandler>:
  * transfer error, half transfer complete, and transfer complete. For each
@@ -3617,10 +3617,10 @@ void DMA2_Stream2_IRQHandler(void)
  8001c70:	4770      	bx	lr
  8001c72:	bf00      	nop
  8001c74:	40026400 	.word	0x40026400
- 8001c78:	200002e0 	.word	0x200002e0
- 8001c7c:	20000230 	.word	0x20000230
- 8001c80:	200003b0 	.word	0x200003b0
- 8001c84:	20000410 	.word	0x20000410
+ 8001c78:	2000027c 	.word	0x2000027c
+ 8001c7c:	200001cc 	.word	0x200001cc
+ 8001c80:	2000034c 	.word	0x2000034c
+ 8001c84:	200003ac 	.word	0x200003ac
 
 08001c88 <DMA2_Stream3_IRQHandler>:
  * transfer error, half transfer complete, and transfer complete. For each
@@ -3771,9 +3771,9 @@ void DMA2_Stream3_IRQHandler(void)
  8001d62:	f85d 7b04 	ldr.w	r7, [sp], #4
  8001d66:	4770      	bx	lr
  8001d68:	40026400 	.word	0x40026400
- 8001d6c:	20000398 	.word	0x20000398
- 8001d70:	20000218 	.word	0x20000218
- 8001d74:	20000418 	.word	0x20000418
+ 8001d6c:	20000334 	.word	0x20000334
+ 8001d70:	200001b4 	.word	0x200001b4
+ 8001d74:	200003b4 	.word	0x200003b4
 
 08001d78 <DMA2_Stream4_IRQHandler>:
  * transfer error, half transfer complete, and transfer complete. For each
@@ -3924,9 +3924,9 @@ void DMA2_Stream4_IRQHandler(void)
  8001e52:	f85d 7b04 	ldr.w	r7, [sp], #4
  8001e56:	4770      	bx	lr
  8001e58:	40026400 	.word	0x40026400
- 8001e5c:	200002c0 	.word	0x200002c0
- 8001e60:	200002e8 	.word	0x200002e8
- 8001e64:	20000420 	.word	0x20000420
+ 8001e5c:	2000025c 	.word	0x2000025c
+ 8001e60:	20000284 	.word	0x20000284
+ 8001e64:	200003bc 	.word	0x200003bc
 
 08001e68 <DMA2_Stream5_IRQHandler>:
  * transfer error, half transfer complete, and transfer complete. For each
@@ -4058,8 +4058,8 @@ void DMA2_Stream5_IRQHandler(void)
  8001f28:	4770      	bx	lr
  8001f2a:	bf00      	nop
  8001f2c:	40026400 	.word	0x40026400
- 8001f30:	200002a0 	.word	0x200002a0
- 8001f34:	20000428 	.word	0x20000428
+ 8001f30:	2000023c 	.word	0x2000023c
+ 8001f34:	200003c4 	.word	0x200003c4
 
 08001f38 <DMA2_Stream6_IRQHandler>:
  * transfer error, half transfer complete, and transfer complete. For each
@@ -4250,11 +4250,11 @@ void DMA2_Stream6_IRQHandler(void)
  800204e:	f85d 7b04 	ldr.w	r7, [sp], #4
  8002052:	4770      	bx	lr
  8002054:	40026400 	.word	0x40026400
- 8002058:	200002b0 	.word	0x200002b0
- 800205c:	200002b8 	.word	0x200002b8
- 8002060:	200002f0 	.word	0x200002f0
- 8002064:	20000288 	.word	0x20000288
- 8002068:	20000430 	.word	0x20000430
+ 8002058:	2000024c 	.word	0x2000024c
+ 800205c:	20000254 	.word	0x20000254
+ 8002060:	2000028c 	.word	0x2000028c
+ 8002064:	20000224 	.word	0x20000224
+ 8002068:	200003cc 	.word	0x200003cc
 
 0800206c <DMA2_Stream7_IRQHandler>:
  * transfer error, half transfer complete, and transfer complete. For each
@@ -4431,9 +4431,9 @@ void DMA2_Stream7_IRQHandler(void)
  8002168:	4770      	bx	lr
  800216a:	bf00      	nop
  800216c:	40026400 	.word	0x40026400
- 8002170:	20000238 	.word	0x20000238
- 8002174:	200002f8 	.word	0x200002f8
- 8002178:	20000438 	.word	0x20000438
+ 8002170:	200001d4 	.word	0x200001d4
+ 8002174:	20000294 	.word	0x20000294
+ 8002178:	200003d4 	.word	0x200003d4
 
 0800217c <DMA_Reset_Flags>:
  * and transfer error.
@@ -7423,7 +7423,7 @@ int8_t USART_Init(USART_Config *config)
  8003694:	f3af 8000 	nop.w
  8003698:	00000000 	.word	0x00000000
  800369c:	41a406f4 	.word	0x41a406f4
- 80036a0:	200006e0 	.word	0x200006e0
+ 80036a0:	2000067c 	.word	0x2000067c
  80036a4:	40011000 	.word	0x40011000
  80036a8:	40400000 	.word	0x40400000
  80036ac:	40300000 	.word	0x40300000
@@ -7948,9 +7948,9 @@ int8_t USART_Init(USART_Config *config)
  8003a50:	40004c00 	.word	0x40004c00
  8003a54:	40005000 	.word	0x40005000
  8003a58:	40011400 	.word	0x40011400
- 8003a5c:	20000440 	.word	0x20000440
+ 8003a5c:	200003dc 	.word	0x200003dc
  8003a60:	08005b24 	.word	0x08005b24
- 8003a64:	200006e0 	.word	0x200006e0
+ 8003a64:	2000067c 	.word	0x2000067c
 	}
 	else
 	{
@@ -8296,13 +8296,13 @@ int8_t USART_Init(USART_Config *config)
  8003ce0:	46bd      	mov	sp, r7
  8003ce2:	bdb0      	pop	{r4, r5, r7, pc}
  8003ce4:	40011000 	.word	0x40011000
- 8003ce8:	20000590 	.word	0x20000590
+ 8003ce8:	2000052c 	.word	0x2000052c
  8003cec:	08005b24 	.word	0x08005b24
  8003cf0:	40004400 	.word	0x40004400
  8003cf4:	40004800 	.word	0x40004800
  8003cf8:	40004c00 	.word	0x40004c00
  8003cfc:	40005000 	.word	0x40005000
- 8003d00:	200006e0 	.word	0x200006e0
+ 8003d00:	2000067c 	.word	0x2000067c
 
 08003d04 <USART_TX_Buffer>:
 
@@ -8704,20 +8704,20 @@ int8_t USART_TX_Buffer(USART_Config *config, uint8_t *tx_buffer, uint16_t length
  8003fa2:	3718      	adds	r7, #24
  8003fa4:	46bd      	mov	sp, r7
  8003fa6:	bd80      	pop	{r7, pc}
- 8003fa8:	200006e0 	.word	0x200006e0
- 8003fac:	20000590 	.word	0x20000590
+ 8003fa8:	2000067c 	.word	0x2000067c
+ 8003fac:	2000052c 	.word	0x2000052c
  8003fb0:	40011000 	.word	0x40011000
- 8003fb4:	20000238 	.word	0x20000238
+ 8003fb4:	200001d4 	.word	0x200001d4
  8003fb8:	40004400 	.word	0x40004400
- 8003fbc:	20000248 	.word	0x20000248
+ 8003fbc:	200001e4 	.word	0x200001e4
  8003fc0:	40004800 	.word	0x40004800
- 8003fc4:	20000258 	.word	0x20000258
+ 8003fc4:	200001f4 	.word	0x200001f4
  8003fc8:	40004c00 	.word	0x40004c00
- 8003fcc:	20000268 	.word	0x20000268
+ 8003fcc:	20000204 	.word	0x20000204
  8003fd0:	40005000 	.word	0x40005000
- 8003fd4:	20000278 	.word	0x20000278
+ 8003fd4:	20000214 	.word	0x20000214
  8003fd8:	40011400 	.word	0x40011400
- 8003fdc:	20000288 	.word	0x20000288
+ 8003fdc:	20000224 	.word	0x20000224
 
 08003fe0 <USART_RX_Buffer>:
 
@@ -9090,20 +9090,20 @@ int8_t USART_RX_Buffer(USART_Config *config, uint8_t *rx_buffer, uint16_t length
  8004236:	46bd      	mov	sp, r7
  8004238:	bd80      	pop	{r7, pc}
  800423a:	bf00      	nop
- 800423c:	200006e0 	.word	0x200006e0
- 8004240:	20000440 	.word	0x20000440
+ 800423c:	2000067c 	.word	0x2000067c
+ 8004240:	200003dc 	.word	0x200003dc
  8004244:	40011000 	.word	0x40011000
- 8004248:	20000230 	.word	0x20000230
+ 8004248:	200001cc 	.word	0x200001cc
  800424c:	40004400 	.word	0x40004400
- 8004250:	20000240 	.word	0x20000240
+ 8004250:	200001dc 	.word	0x200001dc
  8004254:	40004800 	.word	0x40004800
- 8004258:	20000250 	.word	0x20000250
+ 8004258:	200001ec 	.word	0x200001ec
  800425c:	40004c00 	.word	0x40004c00
- 8004260:	20000260 	.word	0x20000260
+ 8004260:	200001fc 	.word	0x200001fc
  8004264:	40005000 	.word	0x40005000
- 8004268:	20000270 	.word	0x20000270
+ 8004268:	2000020c 	.word	0x2000020c
  800426c:	40011400 	.word	0x40011400
- 8004270:	20000280 	.word	0x20000280
+ 8004270:	2000021c 	.word	0x2000021c
 
 08004274 <__NVIC_SetPriority>:
 {
@@ -9551,8 +9551,8 @@ void *_sbrk(ptrdiff_t incr)
  8004556:	bd80      	pop	{r7, pc}
  8004558:	20020000 	.word	0x20020000
  800455c:	00000400 	.word	0x00000400
- 8004560:	200006e4 	.word	0x200006e4
- 8004564:	20000830 	.word	0x20000830
+ 8004560:	20000680 	.word	0x20000680
+ 8004564:	200007d0 	.word	0x200007d0
 
 08004568 <SystemInit>:
   *         configuration.
@@ -9841,7 +9841,7 @@ LoopForever:
   ldr r2, =_sbss
  80046d4:	20000054 	.word	0x20000054
   ldr r4, =_ebss
- 80046d8:	20000830 	.word	0x20000830
+ 80046d8:	200007cc 	.word	0x200007cc
 
 080046dc <ADC_IRQHandler>:
  * @retval : None
@@ -10041,7 +10041,7 @@ Infinite_Loop:
  8004862:	e7ca      	b.n	80047fa <_free_r+0x22>
  8004864:	bd38      	pop	{r3, r4, r5, pc}
  8004866:	bf00      	nop
- 8004868:	2000082c 	.word	0x2000082c
+ 8004868:	200007c8 	.word	0x200007c8
 
 0800486c <sbrk_aligned>:
  800486c:	b570      	push	{r4, r5, r6, lr}
@@ -10071,7 +10071,7 @@ Infinite_Loop:
  80048a6:	d1f2      	bne.n	800488e <sbrk_aligned+0x22>
  80048a8:	e7ef      	b.n	800488a <sbrk_aligned+0x1e>
  80048aa:	bf00      	nop
- 80048ac:	20000828 	.word	0x20000828
+ 80048ac:	200007c4 	.word	0x200007c4
 
 080048b0 <_malloc_r>:
  80048b0:	e92d 43f8 	stmdb	sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
@@ -10181,19 +10181,19 @@ Infinite_Loop:
  80049a6:	6005      	str	r5, [r0, #0]
  80049a8:	e7d6      	b.n	8004958 <_malloc_r+0xa8>
  80049aa:	bf00      	nop
- 80049ac:	2000082c 	.word	0x2000082c
+ 80049ac:	200007c8 	.word	0x200007c8
 
 080049b0 <__malloc_lock>:
  80049b0:	4801      	ldr	r0, [pc, #4]	@ (80049b8 <__malloc_lock+0x8>)
  80049b2:	f7ff bf0f 	b.w	80047d4 <__retarget_lock_acquire_recursive>
  80049b6:	bf00      	nop
- 80049b8:	20000824 	.word	0x20000824
+ 80049b8:	200007c0 	.word	0x200007c0
 
 080049bc <__malloc_unlock>:
  80049bc:	4801      	ldr	r0, [pc, #4]	@ (80049c4 <__malloc_unlock+0x8>)
  80049be:	f7ff bf0a 	b.w	80047d6 <__retarget_lock_release_recursive>
  80049c2:	bf00      	nop
- 80049c4:	20000824 	.word	0x20000824
+ 80049c4:	200007c0 	.word	0x200007c0
 
 080049c8 <__ssputs_r>:
  80049c8:	e92d 47f0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, lr}
@@ -11602,7 +11602,7 @@ Infinite_Loop:
  80056fa:	b103      	cbz	r3, 80056fe <_sbrk_r+0x1a>
  80056fc:	6023      	str	r3, [r4, #0]
  80056fe:	bd38      	pop	{r3, r4, r5, pc}
- 8005700:	20000820 	.word	0x20000820
+ 8005700:	200007bc 	.word	0x200007bc
 
 08005704 <memcpy>:
  8005704:	440a      	add	r2, r1

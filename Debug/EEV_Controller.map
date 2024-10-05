@@ -2623,7 +2623,7 @@ LOAD D:/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.ext
                 0x10000000                        _eccmram = .
                 0x10000000                        . = ALIGN (0x4)
 
-.bss            0x20000054      0x7dc
+.bss            0x20000054      0x778
                 0x20000054                        _sbss = .
                 0x20000054                        __bss_start__ = _sbss
  *(.bss)
@@ -2637,371 +2637,369 @@ LOAD D:/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.ext
  .bss.RX_Length
                 0x20000078        0x4 ./Drivers/Console/Console.o
                 0x20000078                RX_Length
- .bss.RX_Buffer
+ .bss.TRX_Buffer
                 0x2000007c       0x64 ./Drivers/Console/Console.o
-                0x2000007c                RX_Buffer
- .bss.TX_Buffer
-                0x200000e0       0x64 ./Drivers/Console/Console.o
-                0x200000e0                TX_Buffer
- .bss.serial    0x20000144       0x84 ./Drivers/Console/Console.o
-                0x20000144                serial
+                0x2000007c                TRX_Buffer
+ .bss.serial    0x200000e0       0x84 ./Drivers/Console/Console.o
+                0x200000e0                serial
  .bss.I2S2_RX_DMA_Flag
-                0x200001c8        0x6 ./Drivers/DMA/DMA.o
-                0x200001c8                I2S2_RX_DMA_Flag
- *fill*         0x200001ce        0x2 
+                0x20000164        0x6 ./Drivers/DMA/DMA.o
+                0x20000164                I2S2_RX_DMA_Flag
+ *fill*         0x2000016a        0x2 
  .bss.I2S2_TX_DMA_Flag
-                0x200001d0        0x6 ./Drivers/DMA/DMA.o
-                0x200001d0                I2S2_TX_DMA_Flag
- *fill*         0x200001d6        0x2 
+                0x2000016c        0x6 ./Drivers/DMA/DMA.o
+                0x2000016c                I2S2_TX_DMA_Flag
+ *fill*         0x20000172        0x2 
  .bss.I2S3_TX_DMA_Flag
-                0x200001d8        0x6 ./Drivers/DMA/DMA.o
-                0x200001d8                I2S3_TX_DMA_Flag
- *fill*         0x200001de        0x2 
+                0x20000174        0x6 ./Drivers/DMA/DMA.o
+                0x20000174                I2S3_TX_DMA_Flag
+ *fill*         0x2000017a        0x2 
  .bss.I2C1_RX_DMA_Flag
-                0x200001e0        0x6 ./Drivers/DMA/DMA.o
-                0x200001e0                I2C1_RX_DMA_Flag
- *fill*         0x200001e6        0x2 
+                0x2000017c        0x6 ./Drivers/DMA/DMA.o
+                0x2000017c                I2C1_RX_DMA_Flag
+ *fill*         0x20000182        0x2 
  .bss.I2C1_TX_DMA_Flag
-                0x200001e8        0x6 ./Drivers/DMA/DMA.o
-                0x200001e8                I2C1_TX_DMA_Flag
- *fill*         0x200001ee        0x2 
+                0x20000184        0x6 ./Drivers/DMA/DMA.o
+                0x20000184                I2C1_TX_DMA_Flag
+ *fill*         0x2000018a        0x2 
  .bss.I2C2_TX_DMA_Flag
-                0x200001f0        0x6 ./Drivers/DMA/DMA.o
-                0x200001f0                I2C2_TX_DMA_Flag
- *fill*         0x200001f6        0x2 
+                0x2000018c        0x6 ./Drivers/DMA/DMA.o
+                0x2000018c                I2C2_TX_DMA_Flag
+ *fill*         0x20000192        0x2 
  .bss.I2C3_TX_DMA_Flag
-                0x200001f8        0x6 ./Drivers/DMA/DMA.o
-                0x200001f8                I2C3_TX_DMA_Flag
- *fill*         0x200001fe        0x2 
+                0x20000194        0x6 ./Drivers/DMA/DMA.o
+                0x20000194                I2C3_TX_DMA_Flag
+ *fill*         0x2000019a        0x2 
  .bss.SPI1_RX_DMA_Flag
-                0x20000200        0x6 ./Drivers/DMA/DMA.o
-                0x20000200                SPI1_RX_DMA_Flag
- *fill*         0x20000206        0x2 
+                0x2000019c        0x6 ./Drivers/DMA/DMA.o
+                0x2000019c                SPI1_RX_DMA_Flag
+ *fill*         0x200001a2        0x2 
  .bss.SPI2_RX_DMA_Flag
-                0x20000208        0x6 ./Drivers/DMA/DMA.o
-                0x20000208                SPI2_RX_DMA_Flag
- *fill*         0x2000020e        0x2 
+                0x200001a4        0x6 ./Drivers/DMA/DMA.o
+                0x200001a4                SPI2_RX_DMA_Flag
+ *fill*         0x200001aa        0x2 
  .bss.SPI3_RX_DMA_Flag
-                0x20000210        0x6 ./Drivers/DMA/DMA.o
-                0x20000210                SPI3_RX_DMA_Flag
- *fill*         0x20000216        0x2 
+                0x200001ac        0x6 ./Drivers/DMA/DMA.o
+                0x200001ac                SPI3_RX_DMA_Flag
+ *fill*         0x200001b2        0x2 
  .bss.SPI1_TX_DMA_Flag
-                0x20000218        0x6 ./Drivers/DMA/DMA.o
-                0x20000218                SPI1_TX_DMA_Flag
- *fill*         0x2000021e        0x2 
+                0x200001b4        0x6 ./Drivers/DMA/DMA.o
+                0x200001b4                SPI1_TX_DMA_Flag
+ *fill*         0x200001ba        0x2 
  .bss.SPI2_TX_DMA_Flag
-                0x20000220        0x6 ./Drivers/DMA/DMA.o
-                0x20000220                SPI2_TX_DMA_Flag
- *fill*         0x20000226        0x2 
+                0x200001bc        0x6 ./Drivers/DMA/DMA.o
+                0x200001bc                SPI2_TX_DMA_Flag
+ *fill*         0x200001c2        0x2 
  .bss.SPI3_TX_DMA_Flag
-                0x20000228        0x6 ./Drivers/DMA/DMA.o
-                0x20000228                SPI3_TX_DMA_Flag
- *fill*         0x2000022e        0x2 
+                0x200001c4        0x6 ./Drivers/DMA/DMA.o
+                0x200001c4                SPI3_TX_DMA_Flag
+ *fill*         0x200001ca        0x2 
  .bss.USART1_RX_DMA_Flag
-                0x20000230        0x6 ./Drivers/DMA/DMA.o
-                0x20000230                USART1_RX_DMA_Flag
- *fill*         0x20000236        0x2 
+                0x200001cc        0x6 ./Drivers/DMA/DMA.o
+                0x200001cc                USART1_RX_DMA_Flag
+ *fill*         0x200001d2        0x2 
  .bss.USART1_TX_DMA_Flag
-                0x20000238        0x6 ./Drivers/DMA/DMA.o
-                0x20000238                USART1_TX_DMA_Flag
- *fill*         0x2000023e        0x2 
+                0x200001d4        0x6 ./Drivers/DMA/DMA.o
+                0x200001d4                USART1_TX_DMA_Flag
+ *fill*         0x200001da        0x2 
  .bss.USART2_RX_DMA_Flag
-                0x20000240        0x6 ./Drivers/DMA/DMA.o
-                0x20000240                USART2_RX_DMA_Flag
- *fill*         0x20000246        0x2 
+                0x200001dc        0x6 ./Drivers/DMA/DMA.o
+                0x200001dc                USART2_RX_DMA_Flag
+ *fill*         0x200001e2        0x2 
  .bss.USART2_TX_DMA_Flag
-                0x20000248        0x6 ./Drivers/DMA/DMA.o
-                0x20000248                USART2_TX_DMA_Flag
- *fill*         0x2000024e        0x2 
+                0x200001e4        0x6 ./Drivers/DMA/DMA.o
+                0x200001e4                USART2_TX_DMA_Flag
+ *fill*         0x200001ea        0x2 
  .bss.USART3_RX_DMA_Flag
-                0x20000250        0x6 ./Drivers/DMA/DMA.o
-                0x20000250                USART3_RX_DMA_Flag
- *fill*         0x20000256        0x2 
+                0x200001ec        0x6 ./Drivers/DMA/DMA.o
+                0x200001ec                USART3_RX_DMA_Flag
+ *fill*         0x200001f2        0x2 
  .bss.USART3_TX_DMA_Flag
-                0x20000258        0x6 ./Drivers/DMA/DMA.o
-                0x20000258                USART3_TX_DMA_Flag
- *fill*         0x2000025e        0x2 
+                0x200001f4        0x6 ./Drivers/DMA/DMA.o
+                0x200001f4                USART3_TX_DMA_Flag
+ *fill*         0x200001fa        0x2 
  .bss.USART4_RX_DMA_Flag
-                0x20000260        0x6 ./Drivers/DMA/DMA.o
-                0x20000260                USART4_RX_DMA_Flag
- *fill*         0x20000266        0x2 
+                0x200001fc        0x6 ./Drivers/DMA/DMA.o
+                0x200001fc                USART4_RX_DMA_Flag
+ *fill*         0x20000202        0x2 
  .bss.USART4_TX_DMA_Flag
-                0x20000268        0x6 ./Drivers/DMA/DMA.o
-                0x20000268                USART4_TX_DMA_Flag
- *fill*         0x2000026e        0x2 
+                0x20000204        0x6 ./Drivers/DMA/DMA.o
+                0x20000204                USART4_TX_DMA_Flag
+ *fill*         0x2000020a        0x2 
  .bss.USART5_RX_DMA_Flag
-                0x20000270        0x6 ./Drivers/DMA/DMA.o
-                0x20000270                USART5_RX_DMA_Flag
- *fill*         0x20000276        0x2 
+                0x2000020c        0x6 ./Drivers/DMA/DMA.o
+                0x2000020c                USART5_RX_DMA_Flag
+ *fill*         0x20000212        0x2 
  .bss.USART5_TX_DMA_Flag
-                0x20000278        0x6 ./Drivers/DMA/DMA.o
-                0x20000278                USART5_TX_DMA_Flag
- *fill*         0x2000027e        0x2 
+                0x20000214        0x6 ./Drivers/DMA/DMA.o
+                0x20000214                USART5_TX_DMA_Flag
+ *fill*         0x2000021a        0x2 
  .bss.USART6_RX_DMA_Flag
-                0x20000280        0x6 ./Drivers/DMA/DMA.o
-                0x20000280                USART6_RX_DMA_Flag
- *fill*         0x20000286        0x2 
+                0x2000021c        0x6 ./Drivers/DMA/DMA.o
+                0x2000021c                USART6_RX_DMA_Flag
+ *fill*         0x20000222        0x2 
  .bss.USART6_TX_DMA_Flag
-                0x20000288        0x6 ./Drivers/DMA/DMA.o
-                0x20000288                USART6_TX_DMA_Flag
- *fill*         0x2000028e        0x2 
+                0x20000224        0x6 ./Drivers/DMA/DMA.o
+                0x20000224                USART6_TX_DMA_Flag
+ *fill*         0x2000022a        0x2 
  .bss.USART7_RX_DMA_Flag
-                0x20000290        0x6 ./Drivers/DMA/DMA.o
-                0x20000290                USART7_RX_DMA_Flag
- *fill*         0x20000296        0x2 
+                0x2000022c        0x6 ./Drivers/DMA/DMA.o
+                0x2000022c                USART7_RX_DMA_Flag
+ *fill*         0x20000232        0x2 
  .bss.USART8_RX_DMA_Flag
-                0x20000298        0x6 ./Drivers/DMA/DMA.o
-                0x20000298                USART8_RX_DMA_Flag
- *fill*         0x2000029e        0x2 
+                0x20000234        0x6 ./Drivers/DMA/DMA.o
+                0x20000234                USART8_RX_DMA_Flag
+ *fill*         0x2000023a        0x2 
  .bss.TIM1_UP_DMA_Flag
-                0x200002a0        0x6 ./Drivers/DMA/DMA.o
-                0x200002a0                TIM1_UP_DMA_Flag
- *fill*         0x200002a6        0x2 
+                0x2000023c        0x6 ./Drivers/DMA/DMA.o
+                0x2000023c                TIM1_UP_DMA_Flag
+ *fill*         0x20000242        0x2 
  .bss.TIM1_CH1_DMA_Flag
-                0x200002a8        0x6 ./Drivers/DMA/DMA.o
-                0x200002a8                TIM1_CH1_DMA_Flag
- *fill*         0x200002ae        0x2 
+                0x20000244        0x6 ./Drivers/DMA/DMA.o
+                0x20000244                TIM1_CH1_DMA_Flag
+ *fill*         0x2000024a        0x2 
  .bss.TIM1_CH2_DMA_Flag
-                0x200002b0        0x6 ./Drivers/DMA/DMA.o
-                0x200002b0                TIM1_CH2_DMA_Flag
- *fill*         0x200002b6        0x2 
+                0x2000024c        0x6 ./Drivers/DMA/DMA.o
+                0x2000024c                TIM1_CH2_DMA_Flag
+ *fill*         0x20000252        0x2 
  .bss.TIM1_CH3_DMA_Flag
-                0x200002b8        0x6 ./Drivers/DMA/DMA.o
-                0x200002b8                TIM1_CH3_DMA_Flag
- *fill*         0x200002be        0x2 
+                0x20000254        0x6 ./Drivers/DMA/DMA.o
+                0x20000254                TIM1_CH3_DMA_Flag
+ *fill*         0x2000025a        0x2 
  .bss.TIM1_CH4_DMA_Flag
-                0x200002c0        0x6 ./Drivers/DMA/DMA.o
-                0x200002c0                TIM1_CH4_DMA_Flag
- *fill*         0x200002c6        0x2 
+                0x2000025c        0x6 ./Drivers/DMA/DMA.o
+                0x2000025c                TIM1_CH4_DMA_Flag
+ *fill*         0x20000262        0x2 
  .bss.TIM1_TRIG_DMA_Flag
-                0x200002c8        0x6 ./Drivers/DMA/DMA.o
-                0x200002c8                TIM1_TRIG_DMA_Flag
- *fill*         0x200002ce        0x2 
+                0x20000264        0x6 ./Drivers/DMA/DMA.o
+                0x20000264                TIM1_TRIG_DMA_Flag
+ *fill*         0x2000026a        0x2 
  .bss.TIM1_COM_DMA_Flag
-                0x200002d0        0x6 ./Drivers/DMA/DMA.o
-                0x200002d0                TIM1_COM_DMA_Flag
- *fill*         0x200002d6        0x2 
+                0x2000026c        0x6 ./Drivers/DMA/DMA.o
+                0x2000026c                TIM1_COM_DMA_Flag
+ *fill*         0x20000272        0x2 
  .bss.TIM8_UP_DMA_Flag
-                0x200002d8        0x6 ./Drivers/DMA/DMA.o
-                0x200002d8                TIM8_UP_DMA_Flag
- *fill*         0x200002de        0x2 
+                0x20000274        0x6 ./Drivers/DMA/DMA.o
+                0x20000274                TIM8_UP_DMA_Flag
+ *fill*         0x2000027a        0x2 
  .bss.TIM8_CH1_DMA_Flag
-                0x200002e0        0x6 ./Drivers/DMA/DMA.o
-                0x200002e0                TIM8_CH1_DMA_Flag
- *fill*         0x200002e6        0x2 
+                0x2000027c        0x6 ./Drivers/DMA/DMA.o
+                0x2000027c                TIM8_CH1_DMA_Flag
+ *fill*         0x20000282        0x2 
  .bss.TIM8_CH2_DMA_Flag
-                0x200002e8        0x6 ./Drivers/DMA/DMA.o
-                0x200002e8                TIM8_CH2_DMA_Flag
- *fill*         0x200002ee        0x2 
+                0x20000284        0x6 ./Drivers/DMA/DMA.o
+                0x20000284                TIM8_CH2_DMA_Flag
+ *fill*         0x2000028a        0x2 
  .bss.TIM8_CH3_DMA_Flag
-                0x200002f0        0x6 ./Drivers/DMA/DMA.o
-                0x200002f0                TIM8_CH3_DMA_Flag
- *fill*         0x200002f6        0x2 
+                0x2000028c        0x6 ./Drivers/DMA/DMA.o
+                0x2000028c                TIM8_CH3_DMA_Flag
+ *fill*         0x20000292        0x2 
  .bss.TIM8_CH4_DMA_Flag
-                0x200002f8        0x6 ./Drivers/DMA/DMA.o
-                0x200002f8                TIM8_CH4_DMA_Flag
- *fill*         0x200002fe        0x2 
+                0x20000294        0x6 ./Drivers/DMA/DMA.o
+                0x20000294                TIM8_CH4_DMA_Flag
+ *fill*         0x2000029a        0x2 
  .bss.TIM8_TRIG_DMA_Flag
-                0x20000300        0x6 ./Drivers/DMA/DMA.o
-                0x20000300                TIM8_TRIG_DMA_Flag
- *fill*         0x20000306        0x2 
+                0x2000029c        0x6 ./Drivers/DMA/DMA.o
+                0x2000029c                TIM8_TRIG_DMA_Flag
+ *fill*         0x200002a2        0x2 
  .bss.TIM8_COM_DMA_Flag
-                0x20000308        0x6 ./Drivers/DMA/DMA.o
-                0x20000308                TIM8_COM_DMA_Flag
- *fill*         0x2000030e        0x2 
+                0x200002a4        0x6 ./Drivers/DMA/DMA.o
+                0x200002a4                TIM8_COM_DMA_Flag
+ *fill*         0x200002aa        0x2 
  .bss.TIM2_UP_DMA_Flag
-                0x20000310        0x6 ./Drivers/DMA/DMA.o
-                0x20000310                TIM2_UP_DMA_Flag
- *fill*         0x20000316        0x2 
+                0x200002ac        0x6 ./Drivers/DMA/DMA.o
+                0x200002ac                TIM2_UP_DMA_Flag
+ *fill*         0x200002b2        0x2 
  .bss.TIM2_CH1_DMA_Flag
-                0x20000318        0x6 ./Drivers/DMA/DMA.o
-                0x20000318                TIM2_CH1_DMA_Flag
- *fill*         0x2000031e        0x2 
+                0x200002b4        0x6 ./Drivers/DMA/DMA.o
+                0x200002b4                TIM2_CH1_DMA_Flag
+ *fill*         0x200002ba        0x2 
  .bss.TIM2_CH2_DMA_Flag
-                0x20000320        0x6 ./Drivers/DMA/DMA.o
-                0x20000320                TIM2_CH2_DMA_Flag
- *fill*         0x20000326        0x2 
+                0x200002bc        0x6 ./Drivers/DMA/DMA.o
+                0x200002bc                TIM2_CH2_DMA_Flag
+ *fill*         0x200002c2        0x2 
  .bss.TIM2_CH3_DMA_Flag
-                0x20000328        0x6 ./Drivers/DMA/DMA.o
-                0x20000328                TIM2_CH3_DMA_Flag
- *fill*         0x2000032e        0x2 
+                0x200002c4        0x6 ./Drivers/DMA/DMA.o
+                0x200002c4                TIM2_CH3_DMA_Flag
+ *fill*         0x200002ca        0x2 
  .bss.TIM2_CH4_DMA_Flag
-                0x20000330        0x6 ./Drivers/DMA/DMA.o
-                0x20000330                TIM2_CH4_DMA_Flag
- *fill*         0x20000336        0x2 
+                0x200002cc        0x6 ./Drivers/DMA/DMA.o
+                0x200002cc                TIM2_CH4_DMA_Flag
+ *fill*         0x200002d2        0x2 
  .bss.TIM3_CH1_DMA_Flag
-                0x20000338        0x6 ./Drivers/DMA/DMA.o
-                0x20000338                TIM3_CH1_DMA_Flag
- *fill*         0x2000033e        0x2 
+                0x200002d4        0x6 ./Drivers/DMA/DMA.o
+                0x200002d4                TIM3_CH1_DMA_Flag
+ *fill*         0x200002da        0x2 
  .bss.TIM3_CH2_DMA_Flag
-                0x20000340        0x6 ./Drivers/DMA/DMA.o
-                0x20000340                TIM3_CH2_DMA_Flag
- *fill*         0x20000346        0x2 
+                0x200002dc        0x6 ./Drivers/DMA/DMA.o
+                0x200002dc                TIM3_CH2_DMA_Flag
+ *fill*         0x200002e2        0x2 
  .bss.TIM3_CH3_DMA_Flag
-                0x20000348        0x6 ./Drivers/DMA/DMA.o
-                0x20000348                TIM3_CH3_DMA_Flag
- *fill*         0x2000034e        0x2 
+                0x200002e4        0x6 ./Drivers/DMA/DMA.o
+                0x200002e4                TIM3_CH3_DMA_Flag
+ *fill*         0x200002ea        0x2 
  .bss.TIM3_TRIG_DMA_Flag
-                0x20000350        0x6 ./Drivers/DMA/DMA.o
-                0x20000350                TIM3_TRIG_DMA_Flag
- *fill*         0x20000356        0x2 
+                0x200002ec        0x6 ./Drivers/DMA/DMA.o
+                0x200002ec                TIM3_TRIG_DMA_Flag
+ *fill*         0x200002f2        0x2 
  .bss.TIM4_CH1_DMA_Flag
-                0x20000358        0x6 ./Drivers/DMA/DMA.o
-                0x20000358                TIM4_CH1_DMA_Flag
- *fill*         0x2000035e        0x2 
+                0x200002f4        0x6 ./Drivers/DMA/DMA.o
+                0x200002f4                TIM4_CH1_DMA_Flag
+ *fill*         0x200002fa        0x2 
  .bss.TIM4_CH2_DMA_Flag
-                0x20000360        0x6 ./Drivers/DMA/DMA.o
-                0x20000360                TIM4_CH2_DMA_Flag
- *fill*         0x20000366        0x2 
+                0x200002fc        0x6 ./Drivers/DMA/DMA.o
+                0x200002fc                TIM4_CH2_DMA_Flag
+ *fill*         0x20000302        0x2 
  .bss.TIM4_CH3_DMA_Flag
-                0x20000368        0x6 ./Drivers/DMA/DMA.o
-                0x20000368                TIM4_CH3_DMA_Flag
- *fill*         0x2000036e        0x2 
+                0x20000304        0x6 ./Drivers/DMA/DMA.o
+                0x20000304                TIM4_CH3_DMA_Flag
+ *fill*         0x2000030a        0x2 
  .bss.TIM5_CH2_DMA_Flag
-                0x20000370        0x6 ./Drivers/DMA/DMA.o
-                0x20000370                TIM5_CH2_DMA_Flag
- *fill*         0x20000376        0x2 
+                0x2000030c        0x6 ./Drivers/DMA/DMA.o
+                0x2000030c                TIM5_CH2_DMA_Flag
+ *fill*         0x20000312        0x2 
  .bss.TIM5_CH3_DMA_Flag
-                0x20000378        0x6 ./Drivers/DMA/DMA.o
-                0x20000378                TIM5_CH3_DMA_Flag
- *fill*         0x2000037e        0x2 
+                0x20000314        0x6 ./Drivers/DMA/DMA.o
+                0x20000314                TIM5_CH3_DMA_Flag
+ *fill*         0x2000031a        0x2 
  .bss.TIM5_TRIG_DMA_Flag
-                0x20000380        0x6 ./Drivers/DMA/DMA.o
-                0x20000380                TIM5_TRIG_DMA_Flag
- *fill*         0x20000386        0x2 
+                0x2000031c        0x6 ./Drivers/DMA/DMA.o
+                0x2000031c                TIM5_TRIG_DMA_Flag
+ *fill*         0x20000322        0x2 
  .bss.TIM6_UP_DMA_Flag
-                0x20000388        0x6 ./Drivers/DMA/DMA.o
-                0x20000388                TIM6_UP_DMA_Flag
- *fill*         0x2000038e        0x2 
+                0x20000324        0x6 ./Drivers/DMA/DMA.o
+                0x20000324                TIM6_UP_DMA_Flag
+ *fill*         0x2000032a        0x2 
  .bss.DAC2_DMA_Flag
-                0x20000390        0x6 ./Drivers/DMA/DMA.o
-                0x20000390                DAC2_DMA_Flag
- *fill*         0x20000396        0x2 
+                0x2000032c        0x6 ./Drivers/DMA/DMA.o
+                0x2000032c                DAC2_DMA_Flag
+ *fill*         0x20000332        0x2 
  .bss.SDIO_RXTX_DMA_Flag
-                0x20000398        0x6 ./Drivers/DMA/DMA.o
-                0x20000398                SDIO_RXTX_DMA_Flag
- *fill*         0x2000039e        0x2 
+                0x20000334        0x6 ./Drivers/DMA/DMA.o
+                0x20000334                SDIO_RXTX_DMA_Flag
+ *fill*         0x2000033a        0x2 
  .bss.DCMI_DMA_Flag
-                0x200003a0        0x6 ./Drivers/DMA/DMA.o
-                0x200003a0                DCMI_DMA_Flag
- *fill*         0x200003a6        0x2 
+                0x2000033c        0x6 ./Drivers/DMA/DMA.o
+                0x2000033c                DCMI_DMA_Flag
+ *fill*         0x20000342        0x2 
  .bss.ADC1_DMA_Flag
-                0x200003a8        0x6 ./Drivers/DMA/DMA.o
-                0x200003a8                ADC1_DMA_Flag
- *fill*         0x200003ae        0x2 
+                0x20000344        0x6 ./Drivers/DMA/DMA.o
+                0x20000344                ADC1_DMA_Flag
+ *fill*         0x2000034a        0x2 
  .bss.ADC2_DMA_Flag
-                0x200003b0        0x6 ./Drivers/DMA/DMA.o
-                0x200003b0                ADC2_DMA_Flag
- *fill*         0x200003b6        0x2 
+                0x2000034c        0x6 ./Drivers/DMA/DMA.o
+                0x2000034c                ADC2_DMA_Flag
+ *fill*         0x20000352        0x2 
  .bss.ADC3_DMA_Flag
-                0x200003b8        0x6 ./Drivers/DMA/DMA.o
-                0x200003b8                ADC3_DMA_Flag
- *fill*         0x200003be        0x2 
+                0x20000354        0x6 ./Drivers/DMA/DMA.o
+                0x20000354                ADC3_DMA_Flag
+ *fill*         0x2000035a        0x2 
  .bss.DMA1_Stream0_Flag
-                0x200003c0        0x6 ./Drivers/DMA/DMA.o
-                0x200003c0                DMA1_Stream0_Flag
- *fill*         0x200003c6        0x2 
+                0x2000035c        0x6 ./Drivers/DMA/DMA.o
+                0x2000035c                DMA1_Stream0_Flag
+ *fill*         0x20000362        0x2 
  .bss.DMA1_Stream1_Flag
-                0x200003c8        0x6 ./Drivers/DMA/DMA.o
-                0x200003c8                DMA1_Stream1_Flag
- *fill*         0x200003ce        0x2 
+                0x20000364        0x6 ./Drivers/DMA/DMA.o
+                0x20000364                DMA1_Stream1_Flag
+ *fill*         0x2000036a        0x2 
  .bss.DMA1_Stream2_Flag
-                0x200003d0        0x6 ./Drivers/DMA/DMA.o
-                0x200003d0                DMA1_Stream2_Flag
- *fill*         0x200003d6        0x2 
+                0x2000036c        0x6 ./Drivers/DMA/DMA.o
+                0x2000036c                DMA1_Stream2_Flag
+ *fill*         0x20000372        0x2 
  .bss.DMA1_Stream3_Flag
-                0x200003d8        0x6 ./Drivers/DMA/DMA.o
-                0x200003d8                DMA1_Stream3_Flag
- *fill*         0x200003de        0x2 
+                0x20000374        0x6 ./Drivers/DMA/DMA.o
+                0x20000374                DMA1_Stream3_Flag
+ *fill*         0x2000037a        0x2 
  .bss.DMA1_Stream4_Flag
-                0x200003e0        0x6 ./Drivers/DMA/DMA.o
-                0x200003e0                DMA1_Stream4_Flag
- *fill*         0x200003e6        0x2 
+                0x2000037c        0x6 ./Drivers/DMA/DMA.o
+                0x2000037c                DMA1_Stream4_Flag
+ *fill*         0x20000382        0x2 
  .bss.DMA1_Stream5_Flag
-                0x200003e8        0x6 ./Drivers/DMA/DMA.o
-                0x200003e8                DMA1_Stream5_Flag
- *fill*         0x200003ee        0x2 
+                0x20000384        0x6 ./Drivers/DMA/DMA.o
+                0x20000384                DMA1_Stream5_Flag
+ *fill*         0x2000038a        0x2 
  .bss.DMA1_Stream6_Flag
-                0x200003f0        0x6 ./Drivers/DMA/DMA.o
-                0x200003f0                DMA1_Stream6_Flag
- *fill*         0x200003f6        0x2 
+                0x2000038c        0x6 ./Drivers/DMA/DMA.o
+                0x2000038c                DMA1_Stream6_Flag
+ *fill*         0x20000392        0x2 
  .bss.DMA1_Stream7_Flag
-                0x200003f8        0x6 ./Drivers/DMA/DMA.o
-                0x200003f8                DMA1_Stream7_Flag
- *fill*         0x200003fe        0x2 
+                0x20000394        0x6 ./Drivers/DMA/DMA.o
+                0x20000394                DMA1_Stream7_Flag
+ *fill*         0x2000039a        0x2 
  .bss.DMA2_Stream0_Flag
-                0x20000400        0x6 ./Drivers/DMA/DMA.o
-                0x20000400                DMA2_Stream0_Flag
- *fill*         0x20000406        0x2 
+                0x2000039c        0x6 ./Drivers/DMA/DMA.o
+                0x2000039c                DMA2_Stream0_Flag
+ *fill*         0x200003a2        0x2 
  .bss.DMA2_Stream1_Flag
-                0x20000408        0x6 ./Drivers/DMA/DMA.o
-                0x20000408                DMA2_Stream1_Flag
- *fill*         0x2000040e        0x2 
+                0x200003a4        0x6 ./Drivers/DMA/DMA.o
+                0x200003a4                DMA2_Stream1_Flag
+ *fill*         0x200003aa        0x2 
  .bss.DMA2_Stream2_Flag
-                0x20000410        0x6 ./Drivers/DMA/DMA.o
-                0x20000410                DMA2_Stream2_Flag
- *fill*         0x20000416        0x2 
+                0x200003ac        0x6 ./Drivers/DMA/DMA.o
+                0x200003ac                DMA2_Stream2_Flag
+ *fill*         0x200003b2        0x2 
  .bss.DMA2_Stream3_Flag
-                0x20000418        0x6 ./Drivers/DMA/DMA.o
-                0x20000418                DMA2_Stream3_Flag
- *fill*         0x2000041e        0x2 
+                0x200003b4        0x6 ./Drivers/DMA/DMA.o
+                0x200003b4                DMA2_Stream3_Flag
+ *fill*         0x200003ba        0x2 
  .bss.DMA2_Stream4_Flag
-                0x20000420        0x6 ./Drivers/DMA/DMA.o
-                0x20000420                DMA2_Stream4_Flag
- *fill*         0x20000426        0x2 
+                0x200003bc        0x6 ./Drivers/DMA/DMA.o
+                0x200003bc                DMA2_Stream4_Flag
+ *fill*         0x200003c2        0x2 
  .bss.DMA2_Stream5_Flag
-                0x20000428        0x6 ./Drivers/DMA/DMA.o
-                0x20000428                DMA2_Stream5_Flag
- *fill*         0x2000042e        0x2 
+                0x200003c4        0x6 ./Drivers/DMA/DMA.o
+                0x200003c4                DMA2_Stream5_Flag
+ *fill*         0x200003ca        0x2 
  .bss.DMA2_Stream6_Flag
-                0x20000430        0x6 ./Drivers/DMA/DMA.o
-                0x20000430                DMA2_Stream6_Flag
- *fill*         0x20000436        0x2 
+                0x200003cc        0x6 ./Drivers/DMA/DMA.o
+                0x200003cc                DMA2_Stream6_Flag
+ *fill*         0x200003d2        0x2 
  .bss.DMA2_Stream7_Flag
-                0x20000438        0x6 ./Drivers/DMA/DMA.o
-                0x20000438                DMA2_Stream7_Flag
- *fill*         0x2000043e        0x2 
+                0x200003d4        0x6 ./Drivers/DMA/DMA.o
+                0x200003d4                DMA2_Stream7_Flag
+ *fill*         0x200003da        0x2 
  .bss.xUSART_RX
-                0x20000440      0x150 ./Drivers/USART/USART.o
-                0x20000440                xUSART_RX
+                0x200003dc      0x150 ./Drivers/USART/USART.o
+                0x200003dc                xUSART_RX
  .bss.xUSART_TX
-                0x20000590      0x150 ./Drivers/USART/USART.o
-                0x20000590                xUSART_TX
+                0x2000052c      0x150 ./Drivers/USART/USART.o
+                0x2000052c                xUSART_TX
  .bss.usart_dma_instance_number
-                0x200006e0        0x1 ./Drivers/USART/USART.o
-                0x200006e0                usart_dma_instance_number
- *fill*         0x200006e1        0x3 
+                0x2000067c        0x1 ./Drivers/USART/USART.o
+                0x2000067c                usart_dma_instance_number
+ *fill*         0x2000067d        0x3 
  .bss.__sbrk_heap_end
-                0x200006e4        0x4 ./Src/sysmem.o
- .bss.__sf      0x200006e8      0x138 D:/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-findfp.o)
-                0x200006e8                __sf
- .bss.errno     0x20000820        0x4 D:/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-reent.o)
-                0x20000820                errno
+                0x20000680        0x4 ./Src/sysmem.o
+ .bss.__sf      0x20000684      0x138 D:/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-findfp.o)
+                0x20000684                __sf
+ .bss.errno     0x200007bc        0x4 D:/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-reent.o)
+                0x200007bc                errno
  .bss.__lock___malloc_recursive_mutex
-                0x20000824        0x1 D:/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-lock.o)
-                0x20000824                __lock___malloc_recursive_mutex
- *fill*         0x20000825        0x3 
+                0x200007c0        0x1 D:/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-lock.o)
+                0x200007c0                __lock___malloc_recursive_mutex
+ *fill*         0x200007c1        0x3 
  .bss.__malloc_sbrk_start
-                0x20000828        0x4 D:/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-mallocr.o)
-                0x20000828                __malloc_sbrk_start
+                0x200007c4        0x4 D:/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-mallocr.o)
+                0x200007c4                __malloc_sbrk_start
  .bss.__malloc_free_list
-                0x2000082c        0x4 D:/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-mallocr.o)
-                0x2000082c                __malloc_free_list
+                0x200007c8        0x4 D:/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-mallocr.o)
+                0x200007c8                __malloc_free_list
  *(COMMON)
-                0x20000830                        . = ALIGN (0x4)
-                0x20000830                        _ebss = .
-                0x20000830                        __bss_end__ = _ebss
+                0x200007cc                        . = ALIGN (0x4)
+                0x200007cc                        _ebss = .
+                0x200007cc                        __bss_end__ = _ebss
 
 ._user_heap_stack
-                0x20000830      0x600
-                0x20000830                        . = ALIGN (0x8)
+                0x200007cc      0x604
+                0x200007d0                        . = ALIGN (0x8)
+ *fill*         0x200007cc        0x4 
                 [!provide]                        PROVIDE (end = .)
-                0x20000830                        PROVIDE (_end = .)
-                0x20000a30                        . = (. + _Min_Heap_Size)
- *fill*         0x20000830      0x200 
-                0x20000e30                        . = (. + _Min_Stack_Size)
- *fill*         0x20000a30      0x400 
-                0x20000e30                        . = ALIGN (0x8)
+                0x200007d0                        PROVIDE (_end = .)
+                0x200009d0                        . = (. + _Min_Heap_Size)
+ *fill*         0x200007d0      0x200 
+                0x20000dd0                        . = (. + _Min_Stack_Size)
+ *fill*         0x200009d0      0x400 
+                0x20000dd0                        . = ALIGN (0x8)
 
 /DISCARD/
  libc.a(*)
@@ -3111,15 +3109,15 @@ LOAD D:/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.ext
 LOAD D:/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a
 LOAD D:/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v7e-m+fp/hard\libgcc.a
 
-.debug_info     0x00000000     0x8b34
- .debug_info    0x00000000     0x1983 ./Drivers/Console/Console.o
- .debug_info    0x00001983     0x1a05 ./Drivers/DMA/DMA.o
- .debug_info    0x00003388      0xe24 ./Drivers/GPIO/GPIO.o
- .debug_info    0x000041ac     0x23bc ./Drivers/USART/USART.o
- .debug_info    0x00006568     0x1f29 ./Src/main.o
- .debug_info    0x00008491      0x168 ./Src/sysmem.o
- .debug_info    0x000085f9      0x50b ./Src/system_stm32f4xx.o
- .debug_info    0x00008b04       0x30 ./Startup/startup_stm32f407vgtx.o
+.debug_info     0x00000000     0x8b23
+ .debug_info    0x00000000     0x1972 ./Drivers/Console/Console.o
+ .debug_info    0x00001972     0x1a05 ./Drivers/DMA/DMA.o
+ .debug_info    0x00003377      0xe24 ./Drivers/GPIO/GPIO.o
+ .debug_info    0x0000419b     0x23bc ./Drivers/USART/USART.o
+ .debug_info    0x00006557     0x1f29 ./Src/main.o
+ .debug_info    0x00008480      0x168 ./Src/sysmem.o
+ .debug_info    0x000085e8      0x50b ./Src/system_stm32f4xx.o
+ .debug_info    0x00008af3       0x30 ./Startup/startup_stm32f407vgtx.o
 
 .debug_abbrev   0x00000000      0xea0
  .debug_abbrev  0x00000000      0x26a ./Drivers/Console/Console.o
@@ -3190,22 +3188,22 @@ LOAD D:/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.ext
  .debug_line    0x0000530f      0x539 ./Src/system_stm32f4xx.o
  .debug_line    0x00005848       0x7b ./Startup/startup_stm32f407vgtx.o
 
-.debug_str      0x00000000    0x8fccd
- .debug_str     0x00000000    0x8e416 ./Drivers/Console/Console.o
-                              0x8e7a1 (size before relaxing)
- .debug_str     0x0008e416      0xf78 ./Drivers/DMA/DMA.o
+.debug_str      0x00000000    0x8fcd8
+ .debug_str     0x00000000    0x8e421 ./Drivers/Console/Console.o
+                              0x8e798 (size before relaxing)
+ .debug_str     0x0008e421      0xf78 ./Drivers/DMA/DMA.o
                               0x8eebc (size before relaxing)
- .debug_str     0x0008f38e      0x146 ./Drivers/GPIO/GPIO.o
+ .debug_str     0x0008f399      0x146 ./Drivers/GPIO/GPIO.o
                               0x8e38e (size before relaxing)
- .debug_str     0x0008f4d4      0x15b ./Drivers/USART/USART.o
+ .debug_str     0x0008f4df      0x15b ./Drivers/USART/USART.o
                               0x8f09d (size before relaxing)
- .debug_str     0x0008f62f       0xf9 ./Src/main.o
+ .debug_str     0x0008f63a       0xf9 ./Src/main.o
                               0x8ecbf (size before relaxing)
- .debug_str     0x0008f728      0x4d7 ./Src/sysmem.o
+ .debug_str     0x0008f733      0x4d7 ./Src/sysmem.o
                                0x60c2 (size before relaxing)
- .debug_str     0x0008fbff       0x8f ./Src/system_stm32f4xx.o
+ .debug_str     0x0008fc0a       0x8f ./Src/system_stm32f4xx.o
                               0x88590 (size before relaxing)
- .debug_str     0x0008fc8e       0x3f ./Startup/startup_stm32f407vgtx.o
+ .debug_str     0x0008fc99       0x3f ./Startup/startup_stm32f407vgtx.o
                                  0x72 (size before relaxing)
 
 .comment        0x00000000       0x43
