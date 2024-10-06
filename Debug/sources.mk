@@ -31,6 +31,7 @@ Drivers/GPIO \
 Drivers/RTC \
 Drivers/Stepper_Motor \
 Drivers/USART \
+Drivers/USB \
 Signal_Processing/Kalman_Filter \
 Signal_Processing/PID \
 Src \

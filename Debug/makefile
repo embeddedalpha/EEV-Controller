@@ -13,6 +13,7 @@ RM := rm -rf
 -include Src/subdir.mk
 -include Signal_Processing/PID/subdir.mk
 -include Signal_Processing/Kalman_Filter/subdir.mk
+-include Drivers/USB/subdir.mk
 -include Drivers/USART/subdir.mk
 -include Drivers/Stepper_Motor/subdir.mk
 -include Drivers/RTC/subdir.mk

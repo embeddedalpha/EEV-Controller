@@ -1,0 +1,5 @@
+../Drivers/USB/USB_Driver.c:14:13:USB_FS_Pins_Init	40	static
+../Drivers/USB/USB_Driver.c:40:6:USB_Init	16	static
+../Drivers/USB/USB_Driver.c:90:6:USB_Connect	16	static
+../Drivers/USB/USB_Driver.c:104:6:USB_Disconnect	16	static
+../Drivers/USB/USB_Driver.c:118:6:USB_Global_Status_Interrupt_Handler	16	static
