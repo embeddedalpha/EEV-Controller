@@ -880,6 +880,16 @@ typedef struct
   __IO uint32_t HPTXSTS;          /*!< Host Periodic Tx FIFO/ Queue Status  410h */
   __IO uint32_t HAINT;            /*!< Host All Channels Interrupt Register 414h */
   __IO uint32_t HAINTMSK;         /*!< Host All Channels Interrupt Mask     418h */
+  uint32_t Reserved41C;           /*!< Reserved                             41Ch */
+  uint32_t Reserved420;           /*!< Reserved                             420h */
+  uint32_t Reserved424;           /*!< Reserved                             424h */
+  uint32_t Reserved428;           /*!< Reserved                             428h */
+  uint32_t Reserved42C;           /*!< Reserved                             42Ch */
+  uint32_t Reserved430;           /*!< Reserved                             430h */
+  uint32_t Reserved434;           /*!< Reserved                             434h */
+  uint32_t Reserved438;           /*!< Reserved                             438h */
+  uint32_t Reserved43C;           /*!< Reserved                             43Ch */
+  __IO uint32_t HPRT;             /*!< Host Port Control and Status Register          440h */
 } USB_OTG_HostTypeDef;
 
 /**
@@ -887,6 +897,7 @@ typedef struct
   */
 typedef struct
 {
+
   __IO uint32_t HCCHAR;           /*!< Host Channel Characteristics Register    500h */
   __IO uint32_t HCSPLT;           /*!< Host Channel Split Control Register      504h */
   __IO uint32_t HCINT;            /*!< Host Channel Interrupt Register          508h */
