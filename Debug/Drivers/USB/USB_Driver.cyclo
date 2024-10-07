@@ -1,5 +1,0 @@
-../Drivers/USB/USB_Driver.c:14:13:USB_FS_Pins_Init	4
-../Drivers/USB/USB_Driver.c:40:6:USB_Init	8
-../Drivers/USB/USB_Driver.c:90:6:USB_Connect	7
-../Drivers/USB/USB_Driver.c:104:6:USB_Disconnect	7
-../Drivers/USB/USB_Driver.c:118:6:USB_Global_Status_Interrupt_Handler	5

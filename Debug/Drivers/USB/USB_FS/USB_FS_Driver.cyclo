@@ -1,0 +1,11 @@
+../Drivers/USB/USB_FS/USB_FS_Driver.c:14:43:IN_Endpoint	1
+../Drivers/USB/USB_FS/USB_FS_Driver.c:19:44:OUT_Endpoint	1
+../Drivers/USB/USB_FS/USB_FS_Driver.c:25:13:USB_FS_Pins_Init	4
+../Drivers/USB/USB_FS/USB_FS_Driver.c:50:13:USB_FS_Configure_Endpoint_0	1
+../Drivers/USB/USB_FS/USB_FS_Driver.c:60:13:USB_FS_Configure_In_Endpoints	1
+../Drivers/USB/USB_FS/USB_FS_Driver.c:69:13:USB_FS_Deconfigure_In_Endpoints	4
+../Drivers/USB/USB_FS/USB_FS_Driver.c:98:6:USB_FS_Init	8
+../Drivers/USB/USB_FS/USB_FS_Driver.c:148:6:USB_FS_Connect	1
+../Drivers/USB/USB_FS/USB_FS_Driver.c:154:6:USB_FS_Disconnect	1
+../Drivers/USB/USB_FS/USB_FS_Driver.c:160:13:USB_FS_RST_Handler	1
+../Drivers/USB/USB_FS/USB_FS_Driver.c:165:6:USB_FS_Global_Status_Interrupt_Handler	6
