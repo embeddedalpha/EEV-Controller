@@ -10,6 +10,7 @@
 "./Drivers/USB/Dummy_Folder/USB_Driver.o"
 "./Drivers/USB/Dummy_Folder/USB_Framework.o"
 "./Drivers/USB/USB_FS/USB_FS_Driver.o"
+"./Drivers/USB/USB_FS/USB_Framework.o"
 "./Drivers/USB/USB_HS/USB_HS_Driver.o"
 "./Signal_Processing/Kalman_Filter/Kalman_Filter.o"
 "./Signal_Processing/PID/PID.o"

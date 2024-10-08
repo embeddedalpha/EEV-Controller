@@ -1,0 +1,7 @@
+../Inc/core_cm4.h:2064:26:ITM_SendChar	16	static,ignoring_inline_asm
+../Inc/main.h:211:22:Log_Print	120	static
+../Drivers/USB/USB_FS/USB_Framework.c:14:6:USB_Initialize	16	static
+../Drivers/USB/USB_FS/USB_Framework.c:27:6:USB_Poll	8	static
+../Drivers/USB/USB_FS/USB_Framework.c:32:13:USB_Process_Request	4	static
+../Drivers/USB/USB_FS/USB_Framework.c:36:13:USB_Reset_Received_Handler	8	static
+../Drivers/USB/USB_FS/USB_Framework.c:46:13:USB_Setup_Data_Received_Handler	24	static

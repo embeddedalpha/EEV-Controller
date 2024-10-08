@@ -5,13 +5,16 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
-../Drivers/USB/USB_FS/USB_FS_Driver.c 
+../Drivers/USB/USB_FS/USB_FS_Driver.c \
+../Drivers/USB/USB_FS/USB_Framework.c 
 
 OBJS += \
-./Drivers/USB/USB_FS/USB_FS_Driver.o 
+./Drivers/USB/USB_FS/USB_FS_Driver.o \
+./Drivers/USB/USB_FS/USB_Framework.o 
 
 C_DEPS += \
-./Drivers/USB/USB_FS/USB_FS_Driver.d 
+./Drivers/USB/USB_FS/USB_FS_Driver.d \
+./Drivers/USB/USB_FS/USB_Framework.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes
@@ -21,7 +24,7 @@ Drivers/USB/USB_FS/%.o Drivers/USB/USB_FS/%.su Drivers/USB/USB_FS/%.cyclo: ../Dr
 clean: clean-Drivers-2f-USB-2f-USB_FS
 
 clean-Drivers-2f-USB-2f-USB_FS:
-	-$(RM) ./Drivers/USB/USB_FS/USB_FS_Driver.cyclo ./Drivers/USB/USB_FS/USB_FS_Driver.d ./Drivers/USB/USB_FS/USB_FS_Driver.o ./Drivers/USB/USB_FS/USB_FS_Driver.su
+	-$(RM) ./Drivers/USB/USB_FS/USB_FS_Driver.cyclo ./Drivers/USB/USB_FS/USB_FS_Driver.d ./Drivers/USB/USB_FS/USB_FS_Driver.o ./Drivers/USB/USB_FS/USB_FS_Driver.su ./Drivers/USB/USB_FS/USB_Framework.cyclo ./Drivers/USB/USB_FS/USB_Framework.d ./Drivers/USB/USB_FS/USB_Framework.o ./Drivers/USB/USB_FS/USB_Framework.su
 
 .PHONY: clean-Drivers-2f-USB-2f-USB_FS
 
