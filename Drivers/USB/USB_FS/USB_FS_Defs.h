@@ -10,6 +10,7 @@
 
 #include "main.h"
 
+#define USB_FS_Endpoint_Quantity 3
 #define USB_FS_In_Endpoint_Quantity 3
 #define USB_FS_Out_Endpoint_Quantity 3
 
