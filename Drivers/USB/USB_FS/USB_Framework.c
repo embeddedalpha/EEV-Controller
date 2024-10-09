@@ -29,10 +29,6 @@ void USB_Poll(void)
 	USB_Driver_Functions.poll();
 }
 
-static void USB_Process_Request()
-{
-
-}
 static void USB_Reset_Received_Handler(void)
 {
 	usb_device_handle -> in_data_size = 0;
@@ -42,6 +38,42 @@ static void USB_Reset_Received_Handler(void)
 	usb_device_handle -> Control_Transfer_Stage = USB_CONTROL_STAGE_SETUP;
 	USB_Driver_Functions.set_device_address(0);
 }
+
+#define GET_REQUEST 0
+
+static void process_standard_device_request()
+{
+	USB_Requests const *request = usb_device_handle->ptr_out_buffer;
+
+	switch (request -> bRequest) {
+		case GET_REQUEST:
+		{
+
+		}
+			break;
+		default:
+			break;
+	}
+
+
+}
+
+
+static void USB_Process_Request()
+{
+	USB_Requests const *request = usb_device_handle->ptr_out_buffer;
+
+
+	switch (request->bmRequestType & (USB_BM_REQUEST_TYPE_TYPE_MASK | USB_BM_REQUEST_TYPE_RECIPIENT_MASK))
+	{
+		case (USB_BM_REQUEST_TYPE_TYPE_STANDARD | USB_BM_REQUEST_TYPE_RECIPIENT_DEVICE):
+		{
+
+		}
+			break;
+	}
+}
+
 
 static void USB_Setup_Data_Received_Handler(uint8_t endPointNumber, uint8_t byteCount)
 {

@@ -56,4 +56,28 @@ typedef enum
 	USB_CONTROL_STAGE_STATUS_IN,
 }USB_Control_Transfer_Stage;
 
+typedef struct
+{
+	uint8_t bmRequestType;
+	uint8_t bRequest;
+	uint16_t wValue;
+	uint16_t wIndex;
+	uint16_t wLength;
+} USB_Requests;
+
+#define USB_BM_REQUEST_TYPE_DIRECTION_MSK		(1 << 7)
+#define USB_BM_REQUEST_TYPE_DIRECTION_TODEVICE	(0 << 7)
+#define USB_BM_REQUEST_TYPE_DIRECTION_TOHOST	(1 << 7)
+
+#define USB_BM_REQUEST_TYPE_TYPE_MASK		(3 << 5)
+#define USB_BM_REQUEST_TYPE_TYPE_STANDARD	(0 << 5)
+#define USB_BM_REQUEST_TYPE_TYPE_CLASS		(1 << 5)
+#define USB_BM_REQUEST_TYPE_TYPE_VENDOR		(2 << 5)
+
+#define USB_BM_REQUEST_TYPE_RECIPIENT_MASK		(3 << 0)
+#define USB_BM_REQUEST_TYPE_RECIPIENT_DEVICE	(0 << 0)
+#define USB_BM_REQUEST_TYPE_RECIPIENT_INTERFACE	(1 << 0)
+#define USB_BM_REQUEST_TYPE_RECIPIENT_ENDPOINT	(2 << 0)
+#define USB_BM_REQUEST_TYPE_RECIPIENT_OTHER		(3 << 0)
+
 #endif /* USB_USB_STANDARDS_H_ */
