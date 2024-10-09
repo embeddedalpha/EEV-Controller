@@ -23,6 +23,9 @@ C_DEPS :=
 # Every subdirectory with source files must be described here
 SUBDIRS := \
 Application \
+Communication/BACNet/Application_Layer \
+Communication/BACNet/Data_Link_Layer/MSTP \
+Communication/BACNet/Network_Layer \
 Communication/MODBus \
 Drivers/ADC \
 Drivers/Console \

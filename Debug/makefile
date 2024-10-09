@@ -24,6 +24,9 @@ RM := rm -rf
 -include Drivers/Console/subdir.mk
 -include Drivers/ADC/subdir.mk
 -include Communication/MODBus/subdir.mk
+-include Communication/BACNet/Network_Layer/subdir.mk
+-include Communication/BACNet/Data_Link_Layer/MSTP/subdir.mk
+-include Communication/BACNet/Application_Layer/subdir.mk
 -include Application/subdir.mk
 -include objects.mk
 

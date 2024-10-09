@@ -1,4 +1,7 @@
 "./Application/Application.o"
+"./Communication/BACNet/Application_Layer/APDU.o"
+"./Communication/BACNet/Data_Link_Layer/MSTP/MSTP.o"
+"./Communication/BACNet/Network_Layer/NPDU.o"
 "./Communication/MODBus/MODBus.o"
 "./Drivers/ADC/ADC.o"
 "./Drivers/Console/Console.o"
