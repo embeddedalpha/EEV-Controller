@@ -4,5 +4,5 @@
 ../Drivers/USB/USB_FS/USB_Framework.c:27:6:USB_Poll	1
 ../Drivers/USB/USB_FS/USB_Framework.c:32:13:USB_Reset_Received_Handler	1
 ../Drivers/USB/USB_FS/USB_Framework.c:44:13:process_standard_device_request	1
-../Drivers/USB/USB_FS/USB_Framework.c:62:13:USB_Process_Request	2
-../Drivers/USB/USB_FS/USB_Framework.c:78:13:USB_Setup_Data_Received_Handler	2
+../Drivers/USB/USB_FS/USB_Framework.c:63:13:USB_Process_Request	2
+../Drivers/USB/USB_FS/USB_Framework.c:79:13:USB_Setup_Data_Received_Handler	2

@@ -31,6 +31,7 @@ Drivers/ADC \
 Drivers/Console \
 Drivers/DMA \
 Drivers/GPIO \
+Drivers/Logs \
 Drivers/RTC \
 Drivers/Stepper_Motor \
 Drivers/USART \

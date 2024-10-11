@@ -19,6 +19,7 @@ RM := rm -rf
 -include Drivers/USART/subdir.mk
 -include Drivers/Stepper_Motor/subdir.mk
 -include Drivers/RTC/subdir.mk
+-include Drivers/Logs/subdir.mk
 -include Drivers/GPIO/subdir.mk
 -include Drivers/DMA/subdir.mk
 -include Drivers/Console/subdir.mk

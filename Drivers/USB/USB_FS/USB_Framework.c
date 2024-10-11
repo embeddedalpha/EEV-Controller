@@ -39,14 +39,15 @@ static void USB_Reset_Received_Handler(void)
 	USB_Driver_Functions.set_device_address(0);
 }
 
-#define GET_REQUEST 0
+#define GET_DESCRIPTOR 0
 
 static void process_standard_device_request()
 {
 	USB_Requests const *request = usb_device_handle->ptr_out_buffer;
 
-	switch (request -> bRequest) {
-		case GET_REQUEST:
+	switch (request -> bRequest)
+	{
+		case GET_DESCRIPTOR:
 		{
 
 		}

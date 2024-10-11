@@ -7,6 +7,7 @@
 "./Drivers/Console/Console.o"
 "./Drivers/DMA/DMA.o"
 "./Drivers/GPIO/GPIO.o"
+"./Drivers/Logs/Logs.o"
 "./Drivers/RTC/RTC.o"
 "./Drivers/Stepper_Motor/Stepper_Motor.o"
 "./Drivers/USART/USART.o"
