@@ -277,6 +277,16 @@ static void USB_FS_Disconnect(USB_FS_Config *config)
 	USB_OTG_FS -> GCCFG &= ~USB_OTG_GCCFG_PWRDWN;
 }
 
+static void USB_FS_OEPINT_Handler()
+{
+	uint8_t endpoint_number = ffs(USB_OTG_FS_DEVICE -> DAINT)-1;
+    if (IN_Endpoint(endpoint_number)->DIEPINT & USB_OTG_DIEPINT_XFRC)
+    {
+    	USB_Events.on_in_transfer_completed(endpoint_number);
+    	IN_Endpoint(endpoint_number)->DIEPINT |= USB_OTG_DIEPINT_XFRC;
+    }
+}
+
 static void USB_FS_RST_Handler()
 {
 	for(uint8_t i = 0; i <= USB_FS_Endpoint_Quantity; i++)
