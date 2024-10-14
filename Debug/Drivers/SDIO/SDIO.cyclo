@@ -1,0 +1,6 @@
+../Drivers/SDIO/SDIO.c:82:13:Send_SDIO_Argument	1
+../Drivers/SDIO/SDIO.c:87:17:Get_SDIO_Argument	1
+../Drivers/SDIO/SDIO.c:93:15:Set_Bus_Mode	1
+../Drivers/SDIO/SDIO.c:100:8:SDIO_Init	4
+../Drivers/SDIO/SDIO.c:143:6:SDIO_Power_Off	1
+../Drivers/SDIO/SDIO.c:147:6:SDIO_Power_On	1

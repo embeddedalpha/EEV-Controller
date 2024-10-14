@@ -9,6 +9,7 @@
 "./Drivers/GPIO/GPIO.o"
 "./Drivers/Logs/Logs.o"
 "./Drivers/RTC/RTC.o"
+"./Drivers/SDIO/SDIO.o"
 "./Drivers/Stepper_Motor/Stepper_Motor.o"
 "./Drivers/USART/USART.o"
 "./Drivers/USB/Dummy_Folder/USB_Driver.o"

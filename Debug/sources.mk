@@ -33,6 +33,7 @@ Drivers/DMA \
 Drivers/GPIO \
 Drivers/Logs \
 Drivers/RTC \
+Drivers/SDIO \
 Drivers/Stepper_Motor \
 Drivers/USART \
 Drivers/USB/Dummy_Folder \
