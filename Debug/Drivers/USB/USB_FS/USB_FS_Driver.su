@@ -15,9 +15,9 @@
 ../Drivers/USB/USB_FS/USB_FS_Driver.c:215:13:USB_FS_Init	16	static
 ../Drivers/USB/USB_FS/USB_FS_Driver.c:268:13:USB_FS_Connect	16	static
 ../Drivers/USB/USB_FS/USB_FS_Driver.c:274:13:USB_FS_Disconnect	16	static
-../Drivers/USB/USB_FS/USB_FS_Driver.c:280:13:USB_FS_OEPINT_Handler	4	static
-../Drivers/USB/USB_FS/USB_FS_Driver.c:285:13:USB_FS_RST_Handler	16	static
-../Drivers/USB/USB_FS/USB_FS_Driver.c:295:13:USB_FS_ENUM_DONE_Handler	8	static
-../Drivers/USB/USB_FS/USB_FS_Driver.c:302:13:USB_FS_RX_FIFOLV_Handler	16	static
-../Drivers/USB/USB_FS/USB_FS_Driver.c:351:13:USB_FS_Global_Status_Interrupt_Handler	16	static
-../Drivers/USB/USB_FS/USB_FS_Driver.c:380:13:USB_FS_Set_Device_Address	16	static
+../Drivers/USB/USB_FS/USB_FS_Driver.c:280:13:USB_FS_OEPINT_Handler	16	static
+../Drivers/USB/USB_FS/USB_FS_Driver.c:290:13:USB_FS_RST_Handler	16	static
+../Drivers/USB/USB_FS/USB_FS_Driver.c:300:13:USB_FS_ENUM_DONE_Handler	8	static
+../Drivers/USB/USB_FS/USB_FS_Driver.c:307:13:USB_FS_RX_FIFOLV_Handler	16	static
+../Drivers/USB/USB_FS/USB_FS_Driver.c:356:13:USB_FS_Global_Status_Interrupt_Handler	16	static
+../Drivers/USB/USB_FS/USB_FS_Driver.c:385:13:USB_FS_Set_Device_Address	16	static
