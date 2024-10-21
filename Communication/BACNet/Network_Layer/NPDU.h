@@ -138,4 +138,7 @@ typedef struct NPDU_Frame_Format{
 }NPDU_Frame_Format;
 
 
+void BACNet_Construct_NPDU_Frame(NPDU_Frame_Format *frame, uint8_t *buffer, uint16_t length);
+
+
 #endif /* BACNET_NETWORK_LAYER_NPDU_H_ */
