@@ -534,9 +534,9 @@ Discarded input sections
  .data          0x00000000        0x0 ./Communication/BACNet/Network_Layer/NPDU.o
  .bss           0x00000000        0x0 ./Communication/BACNet/Network_Layer/NPDU.o
  .rodata.NPDU_Control
-                0x00000000        0xc ./Communication/BACNet/Network_Layer/NPDU.o
- .debug_info    0x00000000      0x1d1 ./Communication/BACNet/Network_Layer/NPDU.o
- .debug_abbrev  0x00000000       0x82 ./Communication/BACNet/Network_Layer/NPDU.o
+                0x00000000       0x10 ./Communication/BACNet/Network_Layer/NPDU.o
+ .debug_info    0x00000000      0x205 ./Communication/BACNet/Network_Layer/NPDU.o
+ .debug_abbrev  0x00000000       0x73 ./Communication/BACNet/Network_Layer/NPDU.o
  .debug_aranges
                 0x00000000       0x18 ./Communication/BACNet/Network_Layer/NPDU.o
  .debug_macro   0x00000000      0x267 ./Communication/BACNet/Network_Layer/NPDU.o
@@ -589,7 +589,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x10 ./Communication/BACNet/Network_Layer/NPDU.o
  .debug_macro   0x00000000       0x10 ./Communication/BACNet/Network_Layer/NPDU.o
  .debug_line    0x00000000      0x6f0 ./Communication/BACNet/Network_Layer/NPDU.o
- .debug_str     0x00000000    0x8dadb ./Communication/BACNet/Network_Layer/NPDU.o
+ .debug_str     0x00000000    0x8db24 ./Communication/BACNet/Network_Layer/NPDU.o
  .comment       0x00000000       0x44 ./Communication/BACNet/Network_Layer/NPDU.o
  .ARM.attributes
                 0x00000000       0x34 ./Communication/BACNet/Network_Layer/NPDU.o
